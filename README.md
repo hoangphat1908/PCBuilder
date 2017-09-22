@@ -8,6 +8,7 @@ Setup instructions for Eclipse:
 5. Check JDK / JRE versions: 
     * Navigate to Window->Preferences->Java->Installed JREs->Execution Environments
     * Click on JavaSE-1.8(installed JDK) in Execution Environments tab-> Check jre1.8.0_144 in Compatible JREs (with perfect match tag)
+    * Apply and Close
 6. Run configuration:
     * Right click on the project and select Run as->Maven install
     * Navigate to Run->Run Configurations
