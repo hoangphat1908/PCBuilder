@@ -1,3 +1,7 @@
+CREATE DATABASE  IF NOT EXISTS `db`;
+
+USE `db`;
+
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
