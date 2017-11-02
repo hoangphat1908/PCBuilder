@@ -7,6 +7,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>PCBuilder Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  	<properties>
+	    <spring.version>4.3.2.RELEASE</spring.version>
+	    <jstl.version>1.2</jstl.version>
+	    <servlet.version>3.1.0</servlet.version>
+	</properties>
  
  
     <dependencies>
@@ -19,11 +25,10 @@
         </dependency>
  
         <!-- Servlet Library -->
-        <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
  
@@ -32,22 +37,43 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
  
         <!-- http://mvnrepository.com/artifact/org.springframework/spring-web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.3.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
  
         <!-- http://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.3.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
+        
+        <!-- Spring JDBC dependency -->
+        <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		
+		<!-- MySQL Connector Java dependency -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.44</version>
+		</dependency>
+		
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+	</dependency>
  
     </dependencies>
     
