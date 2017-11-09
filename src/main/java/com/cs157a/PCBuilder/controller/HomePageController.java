@@ -20,24 +20,24 @@ import com.cs157a.PCBuilder.service.UserServiceImpl;
 
  
 @Controller
-public class HelloWorldController {
+public class HomePageController {
 	@Autowired
 	private  UserService userService;
 
  
-    @RequestMapping("/hello")
-    public String hello(Model model) {
+    @RequestMapping("/")
+    public String home(Model model) {
     	List<User> users = userService.selectAll();
         
         model.addAttribute("userList",users);
         model.addAttribute("user", new User());
-        return "helloworld";
+        return "homepage";
     }
     
-    @RequestMapping(value = "/hello", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
 	public String addUser(HttpServletRequest request, HttpServletResponse response,
   		  @ModelAttribute("user") User user) {
     	userService.insert(user);
-		return "redirect:/hello";
+		return "redirect:/";
 	}
 }

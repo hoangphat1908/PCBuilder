@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Spring MVC -HelloWorld</title>
+<title>PCBuilder Home</title>
 </head>
 <body>
 	<h3>UserList</h3>
@@ -26,7 +26,7 @@
    		</tr>
    		</c:forEach>
    </table>
-   <form:form id="registerForm" modelAttribute="user" action="hello" method="POST">
+   <form:form id="registerForm" modelAttribute="user" method="POST">
    <table align="center">
        <tr>
            <td>
