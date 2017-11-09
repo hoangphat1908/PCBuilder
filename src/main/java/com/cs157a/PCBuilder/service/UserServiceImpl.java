@@ -9,10 +9,14 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.cs157a.PCBuilder.model.User;
 
 public class UserServiceImpl implements UserService{
+	@Autowired
+	BCryptPasswordEncoder  bCryptPasswordEncoder;
+	
 	@Autowired
 	DataSource datasource;
 	
@@ -20,8 +24,9 @@ public class UserServiceImpl implements UserService{
 	JdbcTemplate jdbcTemplate;
 	
 	public void insert(User user) {
-		String sql = "INSERT INTO user (first_name, last_name, email, password)" + " VALUES (?, ?, ?, ?)";		
-		jdbcTemplate.update(sql, new Object[] { user.getFirst(), user.getLast(), user.getEmail(), user.getPassword() });
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		String sql = "INSERT INTO user (username, email, password)" + " VALUES (?, ?, ?)";		
+		jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getEmail(), user.getPassword() });
 	}
 
 	public List<User> selectAll() {
@@ -30,12 +35,19 @@ public class UserServiceImpl implements UserService{
 		return users;
 	}
 
+	public User find(String username) {
+		String sql = "SELECT * FROM user WHERE username = ?";		
+		List<User> users = jdbcTemplate.query(sql, new UserMapper(), new Object[] {username});
+		if (!users.isEmpty())
+			return users.get(0);
+		return null;
+	}
+
 }
 class UserMapper implements RowMapper<User> {
 	  public User mapRow(ResultSet result, int rowNum) throws SQLException {
 	    User user = new User();
-	    user.setFirst(result.getString("first_name"));
-	    user.setLast(result.getString("last_name"));
+	    user.setUsername(result.getString("username"));
 	    user.setEmail(result.getString("email"));
 	    user.setPassword(result.getString("password"));
 	    return user;

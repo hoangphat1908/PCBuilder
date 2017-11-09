@@ -7,4 +7,5 @@ import com.cs157a.PCBuilder.model.User;
 public interface UserService {
 	public void insert(User user);
 	public List<User> selectAll();
+	public User find(String username);
 }

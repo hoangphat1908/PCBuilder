@@ -12,15 +12,13 @@
 	<h3>UserList</h3>
     <table border="1" width="70%">
    		<tr>
-   			<td>First Name</td>
-   			<td>Last Name</td>
+   			<td>Username</td>
    			<td>Email</td>
    			<td>Password</td>
    		</tr>
    		<c:forEach items="${userList}" var="user">
    		<tr>
-   			<td>${user.first}</td>
-   			<td>${user.last}</td>
+   			<td>${user.username}</td>
    			<td>${user.email}</td>
    			<td>${user.password}</td>
    		</tr>
@@ -30,18 +28,10 @@
    <table align="center">
        <tr>
            <td>
-               <form:label path="first">First Name: </form:label>
+               <form:label path="username">Username: </form:label>
            </td>
            <td>
-               <form:input path="first" name="first" id="first" />
-           </td>
-       </tr>
-       <tr>
-           <td>
-               <form:label path="last">Last Name:</form:label>
-           </td>
-           <td>
-               <form:input path="last" name="last" id="last" />
+               <form:input path="username" name="username" id="username" />
            </td>
        </tr>
        <tr>

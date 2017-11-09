@@ -1,36 +1,24 @@
 package com.cs157a.PCBuilder.model;
 
 public class User {
-    private String first;
-    private String last;
+    private String username;
     private String email;
     private String password;
  
  
     public String toString() {
-        return String.format("[%s - %s - %s - %s]", first, last, email, password);
+        return String.format("[%s - %s - %s]", username, email, password);
     }
 
 
-	public String getFirst() {
-		return first;
+	public String getUsername() {
+		return username;
 	}
 
 
-	public void setFirst(String first) {
-		this.first = first;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-
-	public String getLast() {
-		return last;
-	}
-
-
-	public void setLast(String last) {
-		this.last = last;
-	}
-
 
 	public String getEmail() {
 		return email;
