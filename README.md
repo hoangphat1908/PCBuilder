@@ -20,6 +20,19 @@ Setup instructions for Eclipse:
     * Run
 7. Open web application by navigate to http://localhost:8080/PCBuilder
 
+Setup instructions for MySQL database:
+1. Install MySQL Server from https://dev.mysql.com/downloads/installer/
+2. Set username "root" with password as "abc123" (Our database use username "root" and password "abc123")
+3. Import database schema:
+    * Open terminal and navigate to PCBuilder\src\main\mysql
+    * mysql -u root -p < database.sql
+    * Type in password: "abc123" 
+    * The application is ready to be used
+4. To connect to database:
+    * mysql -u root -p
+    * Type in password: "abc123" 
+    * use db
+    * Type queries: show tables, select * from user, etc
 
 ## Notes:
   1. The tomcat server is running until the running console is stopped
