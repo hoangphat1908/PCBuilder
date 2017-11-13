@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.User;
 
+@Service
 public class UserServiceImpl implements UserService{
 	@Autowired
 	BCryptPasswordEncoder  bCryptPasswordEncoder;
@@ -26,7 +28,7 @@ public class UserServiceImpl implements UserService{
 	public void insert(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		String sql = "INSERT INTO user (username, email, password)" + " VALUES (?, ?, ?)";		
-		jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getEmail(), user.getPassword() });
+		jdbcTemplate.update(sql, new Object[] { user.getUsername(), "", user.getPassword() });
 	}
 
 	public List<User> selectAll() {

@@ -4,7 +4,7 @@ public class User {
     private String username;
     private String email;
     private String password;
- 
+    private String passwordConfirm;
  
     public String toString() {
         return String.format("[%s - %s - %s]", username, email, password);
@@ -27,6 +27,16 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 
