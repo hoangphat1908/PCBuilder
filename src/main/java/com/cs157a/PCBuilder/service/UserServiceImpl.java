@@ -47,11 +47,11 @@ public class UserServiceImpl implements UserService{
 
 }
 class UserMapper implements RowMapper<User> {
-	  public User mapRow(ResultSet result, int rowNum) throws SQLException {
-	    User user = new User();
-	    user.setUsername(result.getString("username"));
-	    user.setEmail(result.getString("email"));
-	    user.setPassword(result.getString("password"));
-	    return user;
-	  }
+	public User mapRow(ResultSet result, int rowNum) throws SQLException {
+		User user = new User();
+		user.setUsername(result.getString("username"));
+		user.setEmail(result.getString("email"));
+		user.setPassword(result.getString("password"));
+		return user;
 	}
+}
