@@ -15,7 +15,7 @@
 					<li><a href="${contextPath}/cpu">CPU</a></li>
 					<li><a href="#">CPU Cooler</a></li>
 					<li><a href="#">Motherboard</a></li>
-					<li><a href="#">RAM</a></li>
+					<li><a href="${contextPath}/ram">RAM</a></li>
 					<li><a href="#">Storage</a></li>
 					<li><a href="#">GPU</a></li>
 					<li><a href="#">PSU</a></li>

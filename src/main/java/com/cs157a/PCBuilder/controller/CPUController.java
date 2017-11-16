@@ -17,8 +17,8 @@ public class CPUController {
 
 	@RequestMapping("/cpu")
     public String cpu(Model model) {
-    	List<CPU> users = cpuService.selectAll();
-        model.addAttribute("userList",users);
+    	List<CPU> cpu = cpuService.selectAll();
+        model.addAttribute("userList",cpu);
         return "cpu_list";
     }
     
