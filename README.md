@@ -1,4 +1,4 @@
-# PCBuilder
+# PCBuilder (Update: 11/16/17) 
 Setup instructions for Eclipse:
 1. Download Eclipse IDE from https://www.eclipse.org/downloads/download.php?file=/oomph/epp/oxygen/R/eclipse-inst-win64.exe and install Eclipse for Java / Java EE Developers
 2. Install Git bash from https://git-scm.com/downloads
@@ -27,8 +27,11 @@ Setup instructions for MySQL database:
     * Open terminal and navigate to PCBuilder\src\main\mysql
     * mysql -u root -p < database.sql
     * Type in password: "abc123" 
+3. Import data:
+    * mysql -u root -p < data.sql
+    * Type in password: "abc123" 
     * The application is ready to be used
-4. To connect to database:
+5. To connect to database:
     * mysql -u root -p
     * Type in password: "abc123" 
     * use db
