@@ -55,16 +55,16 @@ CREATE TABLE `comment` (
 
 CREATE TABLE `component` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `cpu` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `cores` INT NOT NULL,
   `clock_speed` DECIMAL(3,2) NOT NULL,
@@ -74,8 +74,8 @@ CREATE TABLE `cpu` (
 
 CREATE TABLE `motherboard` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `form_factor` VARCHAR(255) NOT NULL,
   `socket` VARCHAR(255) NOT NULL,
@@ -86,8 +86,8 @@ CREATE TABLE `motherboard` (
 
 CREATE TABLE `gpu` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `series` VARCHAR(255) NOT NULL,
   `chipset` VARCHAR(255) NOT NULL,
@@ -98,12 +98,12 @@ CREATE TABLE `gpu` (
 
 CREATE TABLE `psu` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `series` VARCHAR(255) NOT NULL,
   `form_factor` VARCHAR(255) NOT NULL,
-  `watts` INT NOT NULL,
+  `watts` VARCHAR(255) NOT NULL,
   `efficiency` VARCHAR(255) NOT NULL,
   `modular` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -111,8 +111,8 @@ CREATE TABLE `psu` (
 
 CREATE TABLE `ram` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `size` INT NOT NULL,
   `module` VARCHAR(255) NOT NULL,
@@ -123,8 +123,8 @@ CREATE TABLE `ram` (
 
 CREATE TABLE `storage` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `type` VARCHAR(255) NOT NULL,
   `form` VARCHAR(255) NOT NULL,
@@ -136,8 +136,8 @@ CREATE TABLE `storage` (
 
 CREATE TABLE `cooler` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `rpm` VARCHAR(255) NOT NULL,
   `noise` VARCHAR(255) NOT NULL,
@@ -146,11 +146,11 @@ CREATE TABLE `cooler` (
 
 CREATE TABLE `computer_case` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `name` TEXT NOT NULL,
   `manufacturer` VARCHAR(255) NOT NULL,
+  `model` VARCHAR(255) NOT NULL,
   `price` DECIMAL(6,2) NOT NULL,
   `type` VARCHAR(255) NOT NULL,
-  `psu_included` INT,
+  `psu_included` VARCHAR(255),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

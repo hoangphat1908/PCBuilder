@@ -19,7 +19,6 @@ public class CPUController {
     public String cpu(Model model) {
     	List<CPU> cpu = cpuService.selectAll();
         model.addAttribute("userList",cpu);
-        return "cpu_list";
+        return "component_list/cpu_list";
     }
-    
 }

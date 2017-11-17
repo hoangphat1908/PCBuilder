@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.SecurityService;
 import com.cs157a.PCBuilder.service.UserService;
-import com.cs157a.PCBuilder.service.UserServiceImpl;
+import com.cs157a.PCBuilder.service.impl.UserServiceImpl;
 
  
 @Controller

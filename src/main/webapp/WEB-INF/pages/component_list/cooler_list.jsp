@@ -5,34 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CPU</title>
+<title>CPU Cooler</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="_menu.jsp"/>
+	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
-		<h3>CPU List</h3>
+		<h3>CPU Cooler List</h3>
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
-	   			<td>Name</td>
 	   			<td>Manufacturer</td>
-	   			<td>Cores</td>
-	   			<td>Clock Speed</td>
-	   			<td>TDP</td>
-				<td>Price</td>
+	   			<td>Model</td>
+	   			<td>RPM</td>
+	   			<td>Noise</td>
+	   			<td>Price</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
+	   		<c:forEach items="${coolerList}" var="cooler">
 	   		<tr>
-	   			<td>${user.id}</td>
-	   			<td>${user.name}</td>
-	   			<td>${user.manufacturer}</td>
-	   			<td>${user.cores}</td>
-	   			<td>${user.clockSpeed}GHz</td>
-	   			<td>${user.TDP}W</td>
-	   			<td>${user.price}$</td>
+	   			<td>${cooler.id}</td>
+	   			<td>${cooler.manufacturer}</td>
+	   			<td>${cooler.model}</td>
+	   			<td>${cooler.noise}</td>
+	   			<td>${cooler.rpm}</td>
+	   			<td>$${cooler.price}</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

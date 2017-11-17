@@ -13,13 +13,13 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View PC Parts <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="${contextPath}/cpu">CPU</a></li>
-					<li><a href="#">CPU Cooler</a></li>
-					<li><a href="#">Motherboard</a></li>
+					<li><a href="${contextPath}/cooler">CPU Cooler</a></li>
+					<li><a href="${contextPath}/motherboard">Motherboard</a></li>
 					<li><a href="${contextPath}/ram">RAM</a></li>
-					<li><a href="#">Storage</a></li>
-					<li><a href="#">GPU</a></li>
-					<li><a href="#">PSU</a></li>
-					<li><a href="#">Case</a></li>
+					<li><a href="${contextPath}/storage">Storage</a></li>
+					<li><a href="${contextPath}/gpu">GPU</a></li>
+					<li><a href="${contextPath}/psu">PSU</a></li>
+					<li><a href="${contextPath}/case">Case</a></li>
 				</ul>
 			</li>
 			<li>

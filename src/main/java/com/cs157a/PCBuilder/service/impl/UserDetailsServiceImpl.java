@@ -1,6 +1,8 @@
-package com.cs157a.PCBuilder.service;
+package com.cs157a.PCBuilder.service.impl;
 
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

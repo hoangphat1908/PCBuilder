@@ -5,28 +5,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PCBuilder</title>
+<title>GPU</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="_menu.jsp"/>
+	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
-		<h3>User List</h3>
+		<h3>GPU List</h3>
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
-	   			<td>Username</td>
-	   			<td>Email</td>
-	   			<td>Password</td>
+	   			<td>Manufacturer</td>
+	   			<td>Model</td>
+	   			<td>Series</td>
+	   			<td>Chipset</td>
+	   			<td>Memory</td>
+	   			<td>Core clock</td>
+				<td>Price</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
+	   		<c:forEach items="${gpuList}" var="gpu">
 	   		<tr>
-	   			<td>${user.id}</td>
-	   			<td>${user.username}</td>
-	   			<td>${user.email}</td>
-	   			<td>${user.password}</td>
+	   			<td>${gpu.id}</td>
+	   			<td>${gpu.manufacturer}</td>
+	   			<td>${gpu.model}</td>
+	   			<td>${gpu.series}</td>
+	   			<td>${gpu.chipset}</td>
+	   			<td>${gpu.memory}GB</td>
+	   			<td>${gpu.coreClock}GHz</td>
+	   			<td>$${gpu.price}</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

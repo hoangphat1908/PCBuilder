@@ -19,7 +19,7 @@ public class RAMController {
     public String ram(Model model) {
     	List<RAM> ram = ramService.selectAll();
         model.addAttribute("ramList",ram);
-        return "ram_list";
+        return "component_list/ram_list";
     }
 
 }

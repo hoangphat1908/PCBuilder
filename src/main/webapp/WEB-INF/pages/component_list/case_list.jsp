@@ -5,28 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PCBuilder</title>
+<title>Case</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="_menu.jsp"/>
+	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
-		<h3>User List</h3>
+		<h3>Case List</h3>
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
-	   			<td>Username</td>
-	   			<td>Email</td>
-	   			<td>Password</td>
+	   			<td>Manufacturer</td>
+	   			<td>Model</td>
+	   			<td>Type</td>
+	   			<td>PSU Included</td>
+	   			<td>Price</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
+	   		<c:forEach items="${caseList}" var="computerCase">
 	   		<tr>
-	   			<td>${user.id}</td>
-	   			<td>${user.username}</td>
-	   			<td>${user.email}</td>
-	   			<td>${user.password}</td>
+	   			<td>${computerCase.id}</td>
+	   			<td>${computerCase.manufacturer}</td>
+	   			<td>${computerCase.model}</td>
+	   			<td>${computerCase.type}</td>
+	   			<td>${computerCase.psuIncluded}</td>
+	   			<td>$${computerCase.price}</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

@@ -1,4 +1,4 @@
-package com.cs157a.PCBuilder.service;
+package com.cs157a.PCBuilder.service.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -49,6 +50,7 @@ public class UserServiceImpl implements UserService{
 class UserMapper implements RowMapper<User> {
 	public User mapRow(ResultSet result, int rowNum) throws SQLException {
 		User user = new User();
+		user.setId(result.getInt("id"));
 		user.setUsername(result.getString("username"));
 		user.setEmail(result.getString("email"));
 		user.setPassword(result.getString("password"));

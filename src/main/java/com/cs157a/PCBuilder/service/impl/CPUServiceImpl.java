@@ -1,4 +1,4 @@
-package com.cs157a.PCBuilder.service;
+package com.cs157a.PCBuilder.service.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.CPU;
+import com.cs157a.PCBuilder.service.CPUService;
 @Service
 public class CPUServiceImpl implements CPUService{
 	@Autowired
@@ -30,8 +31,8 @@ class CPUMapper implements RowMapper<CPU> {
 	public CPU mapRow(ResultSet result, int rowNum) throws SQLException {
 		CPU cpu = new CPU();
 		cpu.setId(result.getInt("id"));
-		cpu.setName(result.getString("name"));
 		cpu.setManufacturer(result.getString("manufacturer"));
+		cpu.setModel(result.getString("model"));
 		cpu.setPrice(result.getDouble("price"));
 		cpu.setCores(result.getInt("cores"));
 		cpu.setClockSpeed(result.getDouble("clock_speed"));

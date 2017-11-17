@@ -24,6 +24,6 @@ public class CPU extends Component{
 	}
 	@Override
 	public String toString() {
-        return String.format("[%d - %s - %s - %.2f - %d - %.2f - %d]", id, name, manufacturer,  price, cores, clockSpeed, TDP);
+        return String.format("[%d - %s - %s - %.2f - %d - %.2f - %d]", id, manufacturer, model,  price, cores, clockSpeed, TDP);
 	}
 }

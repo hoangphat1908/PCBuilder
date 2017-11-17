@@ -1,10 +1,17 @@
 package com.cs157a.PCBuilder.model;
 
 public class User {
+	private int id;
     private String username;
     private String email;
     private String password;
     private String passwordConfirm;
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -31,6 +38,6 @@ public class User {
 	}
 	@Override
 	public String toString() {
-        return String.format("[%s - %s - %s]", username, email, password);
+        return String.format("[%d - %s - %s - %s]", id, username, email, password);
     }
 }

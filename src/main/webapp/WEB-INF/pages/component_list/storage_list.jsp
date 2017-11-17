@@ -5,28 +5,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PCBuilder</title>
+<title>Storage</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="_menu.jsp"/>
+	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
-		<h3>User List</h3>
+		<h3>Storage List</h3>
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
-	   			<td>Username</td>
-	   			<td>Email</td>
-	   			<td>Password</td>
+	   			<td>Manufacturer</td>
+	   			<td>Model</td>
+	   			<td>Type</td>
+	   			<td>Form</td>
+	   			<td>Series</td>
+	   			<td>Capacity</td>
+				<td>Cache</td>
+				<td>Price</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
+	   		<c:forEach items="${storageList}" var="storage">
 	   		<tr>
-	   			<td>${user.id}</td>
-	   			<td>${user.username}</td>
-	   			<td>${user.email}</td>
-	   			<td>${user.password}</td>
+	   			<td>${storage.id}</td>
+	   			<td>${storage.manufacturer}</td>
+	   			<td>${storage.model}</td>
+	   			<td>${storage.type}GB</td>
+	   			<td>${storage.form}</td>
+	   			<td>${storage.series}</td>
+	   			<td>${storage.capacity}</td>
+	   			<td>${storage.cache}</td>
+	   			<td>$${storage.price}</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

@@ -1,4 +1,4 @@
-package com.cs157a.PCBuilder.service;
+package com.cs157a.PCBuilder.service.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.RAM;
+import com.cs157a.PCBuilder.service.RAMService;
 
 @Service
 public class RAMServiceImpl implements RAMService{
@@ -25,13 +26,14 @@ public class RAMServiceImpl implements RAMService{
 		String sql = "SELECT * FROM ram";		
 		List<RAM> ramList = jdbcTemplate.query(sql, new RAMMapper());
 		return ramList;
-	}}
+	}
+}
 class RAMMapper implements RowMapper<RAM> {
 	public RAM mapRow(ResultSet result, int rowNum) throws SQLException {
 		RAM cpu = new RAM();
 		cpu.setId(result.getInt("id"));
-		cpu.setName(result.getString("name"));
 		cpu.setManufacturer(result.getString("manufacturer"));
+		cpu.setModel(result.getString("model"));
 		cpu.setPrice(result.getDouble("price"));
 		cpu.setSize(result.getInt("size"));
 		cpu.setModule(result.getString("module"));

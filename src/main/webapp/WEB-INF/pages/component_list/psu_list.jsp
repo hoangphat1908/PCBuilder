@@ -5,36 +5,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RAM</title>
+<title>PSU</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="_menu.jsp"/>
+	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
-		<h3>RAM List</h3>
+		<h3>PSU List</h3>
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
-	   			<td>Name</td>
 	   			<td>Manufacturer</td>
-	   			<td>Size</td>
-	   			<td>Module</td>
-	   			<td>Type</td>
-	   			<td>Speed</td>
+	   			<td>Model</td>
+	   			<td>Series</td>
+	   			<td>Form factor</td>
+	   			<td>Watts</td>
+	   			<td>Efficiency</td>
+	   			<td>Modular</td>
 				<td>Price</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${ramList}" var="ram">
+	   		<c:forEach items="${psuList}" var="psu">
 	   		<tr>
-	   			<td>${ram.id}</td>
-	   			<td>${ram.name}</td>
-	   			<td>${ram.manufacturer}</td>
-	   			<td>${ram.size}GB</td>
-	   			<td>${ram.module}</td>
-	   			<td>${ram.type}</td>
-	   			<td>${ram.speed}</td>
-	   			<td>${ram.price}$</td>
+	   			<td>${psu.id}</td>
+	   			<td>${psu.manufacturer}</td>
+	   			<td>${psu.model}</td>
+	   			<td>${psu.series}</td>
+	   			<td>${psu.formFactor}</td>
+	   			<td>${psu.watts}</td>
+	   			<td>${psu.efficiency}</td>
+	   			<td>${psu.modular}</td>
+	   			<td>$${psu.price}</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

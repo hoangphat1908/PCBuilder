@@ -2,8 +2,8 @@ package com.cs157a.PCBuilder.model;
 
 public class Component {
 	protected int id;
-	protected String name;
 	protected String manufacturer;
+	protected String model;
 	protected double price;
 	public int getId() {
 		return id;
@@ -11,11 +11,11 @@ public class Component {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getModel() {
+		return model;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setModel(String model) {
+		this.model = model;
 	}
 	public String getManufacturer() {
 		return manufacturer;
@@ -31,7 +31,6 @@ public class Component {
 	}
 	@Override
 	public String toString() {
-        return String.format("[%d - %s - %s - %.2f]", id, name, manufacturer,  price);
+        return String.format("[%d - %s - %s - %.2f]", id, manufacturer, model, price);
     }
-
 }

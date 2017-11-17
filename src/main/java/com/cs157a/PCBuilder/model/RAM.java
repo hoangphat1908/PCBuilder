@@ -31,6 +31,6 @@ public class RAM extends Component{
 	}
 	@Override
 	public String toString() {
-        return String.format("[%d - %s - %s - %.2f - %d - %s - %s - %s]", id, name, manufacturer,  price, size, module, type, speed);
+        return String.format("[%d - %s - %s - %.2f - %d - %s - %s - %s]", id, manufacturer, model,  price, size, module, type, speed);
 	}
 }
