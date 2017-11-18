@@ -6,4 +6,5 @@ import com.cs157a.PCBuilder.model.PSU;
 
 public interface PSUService {
 	public List<PSU> selectAll();
+	public PSU get(int gpuId);
 }

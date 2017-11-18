@@ -6,4 +6,5 @@ import com.cs157a.PCBuilder.model.CPU;
 
 public interface CPUService {
 	public List<CPU> selectAll();
+	public CPU get(int cpuId);
 }

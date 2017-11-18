@@ -6,4 +6,5 @@ import com.cs157a.PCBuilder.model.Case;
 
 public interface CaseService {
 	public List<Case> selectAll();
+	public Case get(int caseId);
 }

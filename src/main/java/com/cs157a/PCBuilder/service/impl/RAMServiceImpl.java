@@ -27,6 +27,13 @@ public class RAMServiceImpl implements RAMService{
 		List<RAM> ramList = jdbcTemplate.query(sql, new RAMMapper());
 		return ramList;
 	}
+	public RAM get(int ramId) {
+		String sql = "SELECT * FROM ram WHERE id = ?";		
+		List<RAM> ramList = jdbcTemplate.query(sql, new RAMMapper(), new Object[] {ramId});
+		if (!ramList.isEmpty())
+			return ramList.get(0);
+		return null;
+	}
 }
 class RAMMapper implements RowMapper<RAM> {
 	public RAM mapRow(ResultSet result, int rowNum) throws SQLException {

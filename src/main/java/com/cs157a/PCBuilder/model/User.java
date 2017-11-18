@@ -6,6 +6,7 @@ public class User {
     private String email;
     private String password;
     private String passwordConfirm;
+    private Build currentBuild;
     public int getId() {
 		return id;
 	}
@@ -35,6 +36,12 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Build getCurrentBuild() {
+		return currentBuild;
+	}
+	public void setCurrentBuild(Build currentBuild) {
+		this.currentBuild = currentBuild;
 	}
 	@Override
 	public String toString() {

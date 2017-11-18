@@ -27,6 +27,13 @@ public class PSUServiceImpl implements PSUService{
 		List<PSU> psuList = jdbcTemplate.query(sql, new PSUMapper());
 		return psuList;
 	}
+	public PSU get(int psuId) {
+		String sql = "SELECT * FROM psu WHERE id = ?";		
+		List<PSU> psuList = jdbcTemplate.query(sql, new PSUMapper(), new Object[] {psuId});
+		if (!psuList.isEmpty())
+			return psuList.get(0);
+		return null;
+	}
 }
 class PSUMapper implements RowMapper<PSU> {
 	public PSU mapRow(ResultSet result, int rowNum) throws SQLException {

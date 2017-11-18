@@ -27,6 +27,13 @@ public class StorageServiceImpl implements StorageService{
 		List<Storage> storageList = jdbcTemplate.query(sql, new StorageMapper());
 		return storageList;
 	}
+	public Storage get(int storageId) {
+		String sql = "SELECT * FROM storage WHERE id = ?";		
+		List<Storage> storageList = jdbcTemplate.query(sql, new StorageMapper(), new Object[] {storageId});
+		if (!storageList.isEmpty())
+			return storageList.get(0);
+		return null;
+	}
 }
 class StorageMapper implements RowMapper<Storage> {
 	public Storage mapRow(ResultSet result, int rowNum) throws SQLException {

@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>Log in</title>
-	<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
@@ -33,7 +33,7 @@
 
     </form>
 </div>
-<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

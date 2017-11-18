@@ -6,4 +6,5 @@ import com.cs157a.PCBuilder.model.Motherboard;
 
 public interface MotherboardService {
 	public List<Motherboard> selectAll();
+	public Motherboard get(int motherBoardId);
 }

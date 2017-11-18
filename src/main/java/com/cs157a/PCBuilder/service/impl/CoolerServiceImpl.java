@@ -27,6 +27,13 @@ public class CoolerServiceImpl implements CoolerService{
 		List<Cooler> coolerList = jdbcTemplate.query(sql, new CoolerMapper());
 		return coolerList;
 	}
+	public Cooler get(int coolerId) {
+		String sql = "SELECT * FROM cooler WHERE id = ?";		
+		List<Cooler> coolerList = jdbcTemplate.query(sql, new CoolerMapper(), new Object[] {coolerId});
+		if (!coolerList.isEmpty())
+			return coolerList.get(0);
+		return null;
+	}
 }
 class CoolerMapper implements RowMapper<Cooler> {
 	public Cooler mapRow(ResultSet result, int rowNum) throws SQLException {

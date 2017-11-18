@@ -6,4 +6,5 @@ import com.cs157a.PCBuilder.model.Storage;
 
 public interface StorageService {
 	public List<Storage> selectAll();
+	public Storage get(int storageId);
 }

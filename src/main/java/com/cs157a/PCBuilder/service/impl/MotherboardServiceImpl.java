@@ -27,6 +27,13 @@ public class MotherboardServiceImpl implements MotherboardService{
 		List<Motherboard> motherboardList = jdbcTemplate.query(sql, new MotherboardMapper());
 		return motherboardList;
 	}
+	public Motherboard get(int motherboardId) {
+		String sql = "SELECT * FROM motherboard WHERE id = ?";		
+		List<Motherboard> motherboardList = jdbcTemplate.query(sql, new MotherboardMapper(), new Object[] {motherboardId});
+		if (!motherboardList.isEmpty())
+			return motherboardList.get(0);
+		return null;
+	}
 }
 class MotherboardMapper implements RowMapper<Motherboard> {
 	public Motherboard mapRow(ResultSet result, int rowNum) throws SQLException {

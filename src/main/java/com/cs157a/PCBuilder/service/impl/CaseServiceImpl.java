@@ -27,6 +27,14 @@ public class CaseServiceImpl implements CaseService{
 		List<Case> caseList = jdbcTemplate.query(sql, new CaseMapper());
 		return caseList;
 	}
+
+	public Case get(int caseId) {
+		String sql = "SELECT * FROM computer_case WHERE id = ?";		
+		List<Case> caseList = jdbcTemplate.query(sql, new CaseMapper(), new Object[] {caseId});
+		if (!caseList.isEmpty())
+			return caseList.get(0);
+		return null;
+	}
 }
 class CaseMapper implements RowMapper<Case> {
 	public Case mapRow(ResultSet result, int rowNum) throws SQLException {

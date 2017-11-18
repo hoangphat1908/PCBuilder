@@ -5,37 +5,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CPU</title>
+<title>Build View</title>
 <link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="../_menu.jsp"/>
+	<jsp:include page="_menu.jsp"/>
 	<div class="container">
-		<h3>CPU List</h3>
+	<c:if test="${build != null}">
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
-	   			<td>ID</td>
-	   			<td>Manufacturer</td>
-	   			<td>Model</td>
-	   			<td>Cores</td>
-	   			<td>Clock Speed</td>
-	   			<td>TDP</td>
-				<td>Price</td>
+	   			<td>Username</td>
+	   			<td>name</td>
+	   			<td>CPU</td>
+	   			<td>Motherboard</td>
+	   			<td>GPU</td>
+	   			<td>PSU</td>
+	   			<td>Cooler</td>
+				<td>Case</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
 	   		<tr>
-	   			<td>${user.id}</td>
-	   			<td>${user.manufacturer}</td>
-	   			<td>${user.model}</td>
-	   			<td>${user.cores}</td>
-	   			<td>${user.clockSpeed}GHz</td>
-	   			<td>${user.TDP}W</td>
-	   			<td>$${user.price}</td>
+	   			<td>${build.username}</td>
+	   			<td>${build.name}</td>
+	   			<td>${build.cpu.model}</td>
+	   			<td>${build.motherboard.model}</td>
+	   			<td>${build.gpu.model}</td>
+	   			<td>${build.psu.model}</td>
+	   			<td>${build.cooler.model}</td>
+	   			<td>${build.computerCase.model}</td>
 	   		</tr>
-	   		</c:forEach>
 	   </table>
+	</c:if>
    </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>

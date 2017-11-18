@@ -27,6 +27,13 @@ public class GPUServiceImpl implements GPUService{
 		List<GPU> gpuList = jdbcTemplate.query(sql, new GPUMapper());
 		return gpuList;
 	}
+	public GPU get(int gpuId) {
+		String sql = "SELECT * FROM gpu WHERE id = ?";		
+		List<GPU> gpuList = jdbcTemplate.query(sql, new GPUMapper(), new Object[] {gpuId});
+		if (!gpuList.isEmpty())
+			return gpuList.get(0);
+		return null;
+	}
 }
 class GPUMapper implements RowMapper<GPU> {
 	public GPU mapRow(ResultSet result, int rowNum) throws SQLException {

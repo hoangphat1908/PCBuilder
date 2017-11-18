@@ -26,6 +26,13 @@ public class CPUServiceImpl implements CPUService{
 		List<CPU> cpuList = jdbcTemplate.query(sql, new CPUMapper());
 		return cpuList;
 	}
+	public CPU get(int cpuId) {
+		String sql = "SELECT * FROM cpu WHERE id = ?";		
+		List<CPU> cpuList = jdbcTemplate.query(sql, new CPUMapper(), new Object[] {cpuId});
+		if (!cpuList.isEmpty())
+			return cpuList.get(0);
+		return null;
+	}
 }
 class CPUMapper implements RowMapper<CPU> {
 	public CPU mapRow(ResultSet result, int rowNum) throws SQLException {
