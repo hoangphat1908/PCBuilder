@@ -28,6 +28,25 @@
 	   			<td>${post.body}</td>
 	   		</tr>
 	   </table>
+	   <c:if test="${commentList != null}">
+		   <h3>Comment List</h3>
+		    <table border="1" width="70%" class="table table-striped">
+		    	<thead>
+		   		<tr>
+		   			<td>ID</td>
+		   			<td>Body</td>
+		   		</tr>
+		   		</thead>
+		   		<c:forEach items="${commentList}" var="comment">
+		   		<tr>
+		   			<td>${comment.id}</td>
+		   			<td>${comment.body}</td>
+		   		</tr>
+		   		</c:forEach>
+		   </table>
+	   </c:if>
+	   
+	   
 	</c:if>
    </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>

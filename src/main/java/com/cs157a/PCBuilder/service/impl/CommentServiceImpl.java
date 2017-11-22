@@ -34,7 +34,9 @@ public class CommentServiceImpl implements CommentService{
 	public List<Comment> selectAll(Post post) {
 		String sql = "SELECT * FROM comment WHERE post_id = ?";		
 		List<Comment> commentList = jdbcTemplate.query(sql, new CommentMapper(), new Object[] {post.getId()});
-		return commentList;
+		if (commentList.size() > 0)
+			return commentList;
+		return null;
 	}
 	class CommentMapper implements RowMapper<Comment> {
 		public Comment mapRow(ResultSet result, int rowNum) throws SQLException {

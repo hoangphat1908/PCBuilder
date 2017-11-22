@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.cs157a.PCBuilder.model.Comment;
 import com.cs157a.PCBuilder.model.Post;
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.CommentService;
 import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.UserService;
 
@@ -21,6 +23,9 @@ import com.cs157a.PCBuilder.service.UserService;
 public class PostController {
 	@Autowired
 	private  PostService postService;
+	
+	@Autowired
+	private  CommentService commentService;
 	
 	@Autowired
 	private  UserService userService;
@@ -48,6 +53,11 @@ public class PostController {
     public String viewPost(@PathVariable("id") int id, Model model) {
 		Post post = postService.get(id);
         model.addAttribute("post",post);
+        if (post != null) {
+        	List<Comment> comments= commentService.selectAll(post);
+        	System.out.println(comments);
+        	model.addAttribute("commentList",comments);
+        }
         return "post_view";
     }
 }
