@@ -11,31 +11,21 @@
 <body>
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
-	<c:if test="${build != null}">
+	<c:if test="${post != null}">
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
 	   			<td>Username</td>
-	   			<td>name</td>
-	   			<td>CPU</td>
-	   			<td>Motherboard</td>
-	   			<td>GPU</td>
-	   			<td>PSU</td>
-	   			<td>Cooler</td>
-				<td>Case</td>
+	   			<td>Title</td>
+	   			<td>Body</td>
 	   		</tr>
 	   		</thead>
 	   		<tr>
-	   			<td>${build.id}</td>
-	   			<td>${build.user.username}</td>
-	   			<td>${build.name}</td>
-	   			<td>${build.cpu.model}</td>
-	   			<td>${build.motherboard.model}</td>
-	   			<td>${build.gpu.model}</td>
-	   			<td>${build.psu.model}</td>
-	   			<td>${build.cooler.model}</td>
-	   			<td>${build.computerCase.model}</td>
+	   			<td>${post.id}</td>
+	   			<td>${post.user.username}</td>
+	   			<td>${post.title}</td>
+	   			<td>${post.body}</td>
 	   		</tr>
 	   </table>
 	</c:if>

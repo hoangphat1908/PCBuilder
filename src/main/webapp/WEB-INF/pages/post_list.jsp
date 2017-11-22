@@ -5,40 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Build View</title>
+<title>Posts</title>
 <link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
-	<c:if test="${build != null}">
+		<h3>Post List</h3>
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
 	   			<td>Username</td>
-	   			<td>name</td>
-	   			<td>CPU</td>
-	   			<td>Motherboard</td>
-	   			<td>GPU</td>
-	   			<td>PSU</td>
-	   			<td>Cooler</td>
-				<td>Case</td>
+	   			<td>Title</td>
+	   			<td>Body</td>
 	   		</tr>
 	   		</thead>
+	   		<c:forEach items="${postList}" var="post">
 	   		<tr>
-	   			<td>${build.id}</td>
-	   			<td>${build.user.username}</td>
-	   			<td>${build.name}</td>
-	   			<td>${build.cpu.model}</td>
-	   			<td>${build.motherboard.model}</td>
-	   			<td>${build.gpu.model}</td>
-	   			<td>${build.psu.model}</td>
-	   			<td>${build.cooler.model}</td>
-	   			<td>${build.computerCase.model}</td>
+	   			<td><a href = "${contextPath}/post/${post.id}">${post.id}</a></td>
+	   			<td>${post.user.username}</td>
+	   			<td>${post.title}</td>
+	   			<td>${post.body}</td>
 	   		</tr>
+	   		</c:forEach>
 	   </table>
-	</c:if>
+	   <a class="btn btn-lg btn-primary btn-block" href="${contextPath}/post/new">Create new post</a>
    </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>

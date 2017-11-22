@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,20 @@ public class UserServiceImpl implements UserService{
 		if (!users.isEmpty())
 			return users.get(0);
 		return null;
+	}
+
+	public User get(int userId) {
+		String sql = "SELECT * FROM user WHERE id = ?";		
+		List<User> users = jdbcTemplate.query(sql, new UserMapper(), new Object[] {userId});
+		if (!users.isEmpty())
+			return users.get(0);
+		return null;
+	}
+
+	public User getCurrentUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName();
+	    return find(name);
 	}
 
 }

@@ -8,4 +8,6 @@ public interface UserService {
 	public void insert(User user);
 	public List<User> selectAll();
 	public User find(String username);
+	public User get(int userId);
+	public User getCurrentUser();
 }

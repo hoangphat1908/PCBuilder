@@ -33,7 +33,6 @@ public class UserController {
     	List<User> users = userService.selectAll();
         
         model.addAttribute("userList",users);
-        model.addAttribute("user", new User());
         return "homepage";
     }
 

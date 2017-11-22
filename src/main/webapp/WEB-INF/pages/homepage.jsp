@@ -15,7 +15,6 @@
 	    <table border="1" width="70%" class="table table-striped">
 	    	<thead>
 	   		<tr>
-	   			<td>ID</td>
 	   			<td>Username</td>
 	   			<td>Email</td>
 	   			<td>Password</td>
@@ -23,7 +22,6 @@
 	   		</thead>
 	   		<c:forEach items="${userList}" var="user">
 	   		<tr>
-	   			<td>${user.id}</td>
 	   			<td>${user.username}</td>
 	   			<td>${user.email}</td>
 	   			<td>${user.password}</td>

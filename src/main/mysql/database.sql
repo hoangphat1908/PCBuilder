@@ -158,7 +158,7 @@ CREATE TABLE `computer_case` (
 
 CREATE TABLE `build` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `username` VARCHAR(255) NOT NULL,
+  `user_id` INT NOT NULL,
   `name` TEXT NOT NULL,
   `cpu_id` INT,
   `motherboard_id` INT,
@@ -167,6 +167,7 @@ CREATE TABLE `build` (
   `cooler_id` INT,
   `computer_case_id` INT,
   PRIMARY KEY (`id`),
+  FOREIGN KEY (user_id) REFERENCES user(id),
   FOREIGN KEY (cpu_id) REFERENCES cpu(id),
   FOREIGN KEY (motherboard_id) REFERENCES motherboard(id),
   FOREIGN KEY (gpu_id) REFERENCES gpu(id),

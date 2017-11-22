@@ -7,7 +7,7 @@ public class User {
     private String password;
     private String passwordConfirm;
     private Build currentBuild;
-    public int getId() {
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {

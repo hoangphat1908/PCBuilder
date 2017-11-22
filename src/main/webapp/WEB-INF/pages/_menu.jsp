@@ -22,6 +22,7 @@
 					<li><a href="${contextPath}/case">Case</a></li>
 				</ul>
 			</li>
+			<li><a href = "${contextPath}/post">View Posts</a></li>
 			<li>
 				<form class="navbar-form navbar-left" role="search">
 					<div class="form-group">

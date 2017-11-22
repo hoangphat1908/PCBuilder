@@ -25,6 +25,7 @@ import com.cs157a.PCBuilder.service.CaseService;
 import com.cs157a.PCBuilder.service.GPUService;
 import com.cs157a.PCBuilder.service.MotherboardService;
 import com.cs157a.PCBuilder.service.PSUService;
+import com.cs157a.PCBuilder.service.UserService;
 import com.cs157a.PCBuilder.service.CoolerService;
 
 @Service
@@ -35,6 +36,8 @@ public class BuildServiceImpl implements BuildService{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	@Autowired
+	UserService userService;
 	@Autowired
 	CPUService cpuService;
 	@Autowired
@@ -57,7 +60,7 @@ public class BuildServiceImpl implements BuildService{
 					public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 						PreparedStatement pst = 
 								con.prepareStatement(sql1, new String[] {"id"});
-						pst.setString(1, insertBuild.getUsername());
+						pst.setInt(1, insertBuild.getUser().getId());
 						pst.setString(2, insertBuild.getName());
 						pst.setInt(3, insertBuild.getCpu().getId());
 						pst.setInt(4, insertBuild.getMotherboard().getId());
@@ -112,7 +115,8 @@ public class BuildServiceImpl implements BuildService{
 		
 		public Build mapRow(ResultSet result, int rowNum) throws SQLException {
 			Build build = new Build();
-			build.setUsername(result.getString("username"));
+			build.setId(result.getInt("id"));
+			build.setUser(userService.get(result.getInt("user_id")));
 			build.setName(result.getString("name"));
 			build.setCpu(cpuService.get(result.getInt("cpu_id")));
 			build.setMotherboard(motherboardService.get(result.getInt("motherboard_id")));
