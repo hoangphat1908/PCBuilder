@@ -2,6 +2,7 @@ package com.cs157a.PCBuilder.service;
 
 import java.util.List;
 
+import com.cs157a.PCBuilder.model.Component;
 import com.cs157a.PCBuilder.model.User;
 
 public interface UserService {
@@ -10,4 +11,5 @@ public interface UserService {
 	public User find(String username);
 	public User get(int userId);
 	public User getCurrentUser();
+	public void updateCurrentBuild(Component component);
 }

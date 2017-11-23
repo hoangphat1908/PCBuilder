@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Post;
+import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.UserService;
 import com.cs157a.PCBuilder.service.impl.BuildServiceImpl.BuildMapper;
@@ -48,8 +49,15 @@ public class PostServiceImpl implements PostService{
 	}
 	public List<Post> selectAll() {
 		String sql = "SELECT * FROM post";		
-		List<Post> psuList = jdbcTemplate.query(sql, new PostMapper());
-		return psuList;
+		List<Post> postList = jdbcTemplate.query(sql, new PostMapper());
+		return postList;
+	}
+	public List<Post> selectAll(User user) {
+		String sql = "SELECT * FROM post WHERE user_id = ?";		
+		List<Post> postList = jdbcTemplate.query(sql, new PostMapper(), new Object[] {user.getId()});
+		if (postList.size() > 0)
+			return postList;
+		return null;
 	}
 	class PostMapper implements RowMapper<Post> {
 		public Post mapRow(ResultSet result, int rowNum) throws SQLException {

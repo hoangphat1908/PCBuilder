@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -24,15 +25,21 @@
 				<td>Price</td>
 	   		</tr>
 	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
+	   		<c:forEach items="${cpuList}" var="cpu">
 	   		<tr>
-	   			<td>${user.id}</td>
-	   			<td>${user.manufacturer}</td>
-	   			<td>${user.model}</td>
-	   			<td>${user.cores}</td>
-	   			<td>${user.clockSpeed}GHz</td>
-	   			<td>${user.TDP}W</td>
-	   			<td>$${user.price}</td>
+	   			<td>${cpu.id}</td>
+	   			<td>${cpu.manufacturer}</td>
+	   			<td>${cpu.model}</td>
+	   			<td>${cpu.cores}</td>
+	   			<td>${cpu.clockSpeed}GHz</td>
+	   			<td>${cpu.TDP}W</td>
+	   			<td>$${cpu.price}</td>
+	   			<td>
+	   			    <form action="${contextPath}/cpu/${cpu.id}" method="POST">
+	   					<button type="submit">Add</button>
+	   				</form>
+	   				
+	   			</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

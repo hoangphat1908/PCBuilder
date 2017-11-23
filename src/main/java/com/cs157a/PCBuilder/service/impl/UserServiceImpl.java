@@ -14,13 +14,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.cs157a.PCBuilder.model.Build;
+import com.cs157a.PCBuilder.model.CPU;
+import com.cs157a.PCBuilder.model.Component;
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
 	@Autowired
-	BCryptPasswordEncoder  bCryptPasswordEncoder;
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
 	DataSource datasource;
@@ -28,6 +32,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	@Autowired
+	BuildService buildService;
 	public void insert(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		String sql = "INSERT INTO user (username, email, password)" + " VALUES (?, ?, ?)";		
@@ -61,15 +67,25 @@ public class UserServiceImpl implements UserService{
 	    String name = auth.getName();
 	    return find(name);
 	}
-
-}
-class UserMapper implements RowMapper<User> {
-	public User mapRow(ResultSet result, int rowNum) throws SQLException {
-		User user = new User();
-		user.setId(result.getInt("id"));
-		user.setUsername(result.getString("username"));
-		user.setEmail(result.getString("email"));
-		user.setPassword(result.getString("password"));
-		return user;
+	public void updateCurrentBuild(Component component) {
+		User user = getCurrentUser();
+		if (user != null) {
+			Build build = buildService.get(user.getCurrentBuildId());
+			if (component instanceof CPU) {
+				buildService.chooseCPU(build, (CPU)component);
+			}
+		}
+	}
+	class UserMapper implements RowMapper<User> {
+		public User mapRow(ResultSet result, int rowNum) throws SQLException {
+			User user = new User();
+			user.setId(result.getInt("id"));
+			user.setUsername(result.getString("username"));
+			user.setEmail(result.getString("email"));
+			user.setPassword(result.getString("password"));
+			user.setCurrentBuildId(result.getInt("current_build_id"));
+			return user;
+		}
 	}
 }
+

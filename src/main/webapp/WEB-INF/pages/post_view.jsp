@@ -1,5 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -34,18 +36,31 @@
 		    	<thead>
 		   		<tr>
 		   			<td>ID</td>
+		   			<td>Username</td>
 		   			<td>Body</td>
 		   		</tr>
 		   		</thead>
 		   		<c:forEach items="${commentList}" var="comment">
 		   		<tr>
 		   			<td>${comment.id}</td>
+		   			<td>${comment.user.username}</td>
 		   			<td>${comment.body}</td>
 		   		</tr>
 		   		</c:forEach>
 		   </table>
 	   </c:if>
-	   
+	   <c:if test="${pageContext.request.userPrincipal.name != null}">
+		   <form:form method="POST" modelAttribute="comment" class="form-signin">
+	        	<h2 class="form-signin-heading">Create a new comment</h2>
+		        <spring:bind path="body">
+		            <div class="form-group">
+		                <form:input type="text" path="body" class="form-control" placeholder="Body"></form:input>
+		                <form:errors path="body"></form:errors>
+		            </div>
+		        </spring:bind>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">Post it!</button>
+		    </form:form>
+	   </c:if>
 	   
 	</c:if>
    </div>

@@ -49,15 +49,21 @@ public class PostController {
 		return "redirect:/post";
 	}
 
-	@RequestMapping(value = "/post/{id}", method=RequestMethod.GET)
+	@RequestMapping("/post/{id}")
     public String viewPost(@PathVariable("id") int id, Model model) {
 		Post post = postService.get(id);
         model.addAttribute("post",post);
         if (post != null) {
         	List<Comment> comments= commentService.selectAll(post);
-        	System.out.println(comments);
         	model.addAttribute("commentList",comments);
+        	model.addAttribute("comment", new Comment());
         }
         return "post_view";
     }
+	@RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
+	public String createComment(@PathVariable("id") int id, @ModelAttribute("comment") Comment comment) {
+		comment.setPostId(id);
+		commentService.insert(comment);
+		return "redirect:/post/{id}";
+	}
 }

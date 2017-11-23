@@ -14,7 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cs157a.PCBuilder.model.Build;
+import com.cs157a.PCBuilder.model.Comment;
+import com.cs157a.PCBuilder.model.Post;
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.BuildService;
+import com.cs157a.PCBuilder.service.CommentService;
+import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.SecurityService;
 import com.cs157a.PCBuilder.service.UserService;
 import com.cs157a.PCBuilder.service.impl.UserServiceImpl;
@@ -27,6 +33,15 @@ public class UserController {
 	
 	@Autowired
 	private SecurityService securityService;
+	
+	@Autowired
+	private BuildService buildService;
+	
+	@Autowired
+	private PostService postService;
+	
+	@Autowired
+	private CommentService commentService;
 
 	@RequestMapping("/")
     public String home(Model model) {
@@ -62,6 +77,15 @@ public class UserController {
     
     @RequestMapping(value = {"/profile"}, method = RequestMethod.GET)
     public String profile(Model model) {
+    	User user = userService.getCurrentUser();
+    	List<Post> posts = postService.selectAll(user);
+    	List<Comment> comments = commentService.selectAll(user);
+    	Build build = buildService.get(user.getCurrentBuildId());
+    	List<Build> builds = buildService.selectAll(user);
+    	model.addAttribute("postList",posts);
+    	model.addAttribute("commendList",comments); 
+    	model.addAttribute("currentBuild", build);
+    	model.addAttribute("buildList", builds);
         return "profile";
     }
 	

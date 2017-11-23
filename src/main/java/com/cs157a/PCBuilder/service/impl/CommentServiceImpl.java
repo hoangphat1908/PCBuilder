@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Comment;
 import com.cs157a.PCBuilder.model.Post;
+import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.CommentService;
 import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -31,6 +32,20 @@ public class CommentServiceImpl implements CommentService{
 	
 	@Autowired
 	PostService postService;
+	public void insert(Comment comment) {
+		if (userService.getCurrentUser() == null)
+			return;
+		System.out.println(comment.getPostId());
+		String sql = "INSERT INTO comment (user_id, post_id, body)" + " VALUES (?, ?, ?)";		
+		jdbcTemplate.update(sql, new Object[] { userService.getCurrentUser().getId(), comment.getPostId(), comment.getBody() });
+	}
+	public List<Comment> selectAll(User user) {
+		String sql = "SELECT * FROM comment WHERE user_id = ?";		
+		List<Comment> commentList = jdbcTemplate.query(sql, new CommentMapper(), new Object[] {user.getId()});
+		if (commentList.size() > 0)
+			return commentList;
+		return null;
+	}
 	public List<Comment> selectAll(Post post) {
 		String sql = "SELECT * FROM comment WHERE post_id = ?";		
 		List<Comment> commentList = jdbcTemplate.query(sql, new CommentMapper(), new Object[] {post.getId()});
@@ -43,7 +58,7 @@ public class CommentServiceImpl implements CommentService{
 			Comment comment = new Comment();
 			comment.setId(result.getInt("id"));
 			comment.setUser(userService.get(result.getInt("user_id")));
-			comment.setPost(postService.get(result.getInt("post_id")));
+			comment.setPostId(postService.get(result.getInt("post_id")).getId());
 			comment.setBody(result.getString("body"));
 			return comment;
 		}

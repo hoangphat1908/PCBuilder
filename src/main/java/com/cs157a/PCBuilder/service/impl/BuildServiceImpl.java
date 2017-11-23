@@ -17,8 +17,10 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Build;
+import com.cs157a.PCBuilder.model.CPU;
 import com.cs157a.PCBuilder.model.RAM;
 import com.cs157a.PCBuilder.model.Storage;
+import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.CPUService;
 import com.cs157a.PCBuilder.service.CaseService;
@@ -26,6 +28,7 @@ import com.cs157a.PCBuilder.service.GPUService;
 import com.cs157a.PCBuilder.service.MotherboardService;
 import com.cs157a.PCBuilder.service.PSUService;
 import com.cs157a.PCBuilder.service.UserService;
+import com.cs157a.PCBuilder.service.impl.PostServiceImpl.PostMapper;
 import com.cs157a.PCBuilder.service.CoolerService;
 
 @Service
@@ -83,10 +86,10 @@ public class BuildServiceImpl implements BuildService{
 		for (Storage storage : insertBuild.getStorageList())
 			jdbcTemplate.update(sql3, new Object[] { buildId, storage.getId() });
 	}
-
-	public void update(Build build) {
-		// TODO Auto-generated method stub
-		
+	
+	public void chooseCPU(Build build, CPU cpu) {
+		String sql = "UPDATE build SET cpu_id = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { cpu.getId(), build.getId() });
 	}
 
 	public void delete(int buildId) {
@@ -94,8 +97,16 @@ public class BuildServiceImpl implements BuildService{
 		
 	}
 
-	public List<Build> findAll(int userId) {
+	public List<Build> selectAll() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<Build> selectAll(User user) {
+		String sql = "SELECT * FROM build WHERE user_id = ?";		
+		List<Build> buildList = jdbcTemplate.query(sql, new BuildMapper(), new Object[] {user.getId()});
+		if (buildList.size() > 0)
+			return buildList;
 		return null;
 	}
 

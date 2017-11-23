@@ -6,7 +6,7 @@ public class User {
     private String email;
     private String password;
     private String passwordConfirm;
-    private Build currentBuild;
+    private int currentBuildId;
 	public int getId() {
 		return id;
 	}
@@ -37,11 +37,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Build getCurrentBuild() {
-		return currentBuild;
+	public int getCurrentBuildId() {
+		return currentBuildId;
 	}
-	public void setCurrentBuild(Build currentBuild) {
-		this.currentBuild = currentBuild;
+	public void setCurrentBuildId(int currentBuildId) {
+		this.currentBuildId = currentBuildId;
 	}
 	@Override
 	public String toString() {

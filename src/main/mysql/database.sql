@@ -29,6 +29,7 @@ CREATE TABLE `user` (
   `username` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `current_build_id` INT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -175,6 +176,9 @@ CREATE TABLE `build` (
   FOREIGN KEY (cooler_id) REFERENCES cooler(id),
   FOREIGN KEY (computer_case_id) REFERENCES computer_case(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `user`
+ADD FOREIGN KEY (current_build_id) REFERENCES build(id);
 
 CREATE TABLE `post_build` (
   `id` INT AUTO_INCREMENT NOT NULL,
