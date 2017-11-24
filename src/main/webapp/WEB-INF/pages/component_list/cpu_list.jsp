@@ -13,37 +13,36 @@
 	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
 		<h3>CPU List</h3>
-	    <table border="1" width="70%" class="table table-striped">
-	    	<thead>
-	   		<tr>
-	   			<td>ID</td>
-	   			<td>Manufacturer</td>
-	   			<td>Model</td>
-	   			<td>Cores</td>
-	   			<td>Clock Speed</td>
-	   			<td>TDP</td>
-				<td>Price</td>
-	   		</tr>
-	   		</thead>
-	   		<c:forEach items="${cpuList}" var="cpu">
-	   		<tr>
-	   			<td>${cpu.id}</td>
-	   			<td>${cpu.manufacturer}</td>
-	   			<td>${cpu.model}</td>
-	   			<td>${cpu.cores}</td>
-	   			<td>${cpu.clockSpeed}GHz</td>
-	   			<td>${cpu.TDP}W</td>
-	   			<td>$${cpu.price}</td>
-	   			<td>
-	   			    <form action="${contextPath}/cpu/${cpu.id}" method="POST">
-	   					<button type="submit">Add</button>
-	   				</form>
-	   				
-	   			</td>
-	   		</tr>
-	   		</c:forEach>
-	   </table>
-   </div>
+		<table class="table">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Manufacturer</td>
+					<td>Model</td>
+					<td>Cores</td>
+					<td>Clock Speed</td>
+					<td>TDP</td>
+					<td>Price</td>
+				</tr>
+			</thead>
+			<c:forEach items="${cpuList}" var="cpu">
+				<tr>
+					<td>${cpu.id}</td>
+					<td>${cpu.manufacturer}</td>
+					<td>${cpu.model}</td>
+					<td>${cpu.cores}</td>
+					<td>${cpu.clockSpeed}GHz</td>
+					<td>${cpu.TDP}W</td>
+					<td>$${cpu.price}</td>
+					<td>
+					    <form action="${contextPath}/cpu/${cpu.id}" method="POST">
+							<button type="submit">Add</button>
+						</form>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>

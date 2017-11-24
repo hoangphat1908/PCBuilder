@@ -12,7 +12,7 @@
 	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
 		<h3>PSU List</h3>
-	    <table border="1" width="70%" class="table table-striped">
+	    <table class="table">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>

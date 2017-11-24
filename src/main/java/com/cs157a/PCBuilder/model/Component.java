@@ -23,6 +23,9 @@ public class Component {
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
+	public String getName() {
+		return manufacturer+" "+model;
+	}
 	public double getPrice() {
 		return price;
 	}

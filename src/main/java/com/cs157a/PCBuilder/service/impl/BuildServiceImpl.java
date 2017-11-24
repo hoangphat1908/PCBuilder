@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Build;
 import com.cs157a.PCBuilder.model.CPU;
+import com.cs157a.PCBuilder.model.Motherboard;
 import com.cs157a.PCBuilder.model.RAM;
 import com.cs157a.PCBuilder.model.Storage;
 import com.cs157a.PCBuilder.model.User;
@@ -91,7 +92,22 @@ public class BuildServiceImpl implements BuildService{
 		String sql = "UPDATE build SET cpu_id = ? WHERE id = ?";		
 		jdbcTemplate.update(sql, new Object[] { cpu.getId(), build.getId() });
 	}
+	
+	public void removeCPU(Build build) {
+		String sql = "UPDATE build SET cpu_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { build.getId() });
+	}
 
+	public void chooseMotherboard(Build build, Motherboard motherboard) {
+		String sql = "UPDATE build SET motherboard_id = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { motherboard.getId(), build.getId() });
+	}
+
+	public void removeMotherboard(Build build) {
+		String sql = "UPDATE build SET motherboard_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { build.getId() });
+	}
+	
 	public void delete(int buildId) {
 		// TODO Auto-generated method stub
 		

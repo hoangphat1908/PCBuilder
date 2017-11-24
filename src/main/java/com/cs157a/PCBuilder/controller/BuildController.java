@@ -38,4 +38,28 @@ public class BuildController {
 		}
         return "my_build";
     }
+	@RequestMapping(value = "/mybuild/remove/cpu", method = RequestMethod.GET)
+	public String removeCPU(Model model) {
+		User user = userService.getCurrentUser();
+		if (user != null) {
+			Build build = buildService.get(user.getCurrentBuildId());
+			if (build != null) {
+				buildService.removeCPU(build);
+			}
+			
+		}
+		return "redirect:/mybuild";
+	}
+	@RequestMapping(value = "/mybuild/remove/motherboard", method = RequestMethod.GET)
+	public String removeMotherboard(Model model) {
+		User user = userService.getCurrentUser();
+		if (user != null) {
+			Build build = buildService.get(user.getCurrentBuildId());
+			if (build != null) {
+				buildService.removeMotherboard(build);
+			}
+			
+		}
+		return "redirect:/mybuild";
+	}
 }

@@ -12,7 +12,7 @@
 	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
 		<h3>Motherboard List</h3>
-	    <table border="1" width="70%" class="table table-striped">
+	    <table class="table">
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
@@ -35,6 +35,11 @@
 	   			<td>${motherboard.ramSlots}</td>
 	   			<td>${motherboard.ramMax}GB</td>
 	   			<td>$${motherboard.price}</td>
+	   			<td>
+				    <form action="${contextPath}/motherboard/${motherboard.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.cs157a.PCBuilder.model.Build;
 import com.cs157a.PCBuilder.model.CPU;
 import com.cs157a.PCBuilder.model.Component;
+import com.cs157a.PCBuilder.model.Motherboard;
 import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -73,6 +74,9 @@ public class UserServiceImpl implements UserService{
 			Build build = buildService.get(user.getCurrentBuildId());
 			if (component instanceof CPU) {
 				buildService.chooseCPU(build, (CPU)component);
+			}
+			if (component instanceof Motherboard) {
+				buildService.chooseMotherboard(build, (Motherboard)component);
 			}
 		}
 	}

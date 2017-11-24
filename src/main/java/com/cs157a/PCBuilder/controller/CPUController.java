@@ -16,10 +16,11 @@ import com.cs157a.PCBuilder.service.UserService;
 
 @Controller
 public class CPUController {
+	@Autowired 
+	private UserService userService;
+	
 	@Autowired
 	private  CPUService cpuService;
-	
-	@Autowired UserService userService;
 
 	@RequestMapping("/cpu")
     public String cpu(Model model) {
