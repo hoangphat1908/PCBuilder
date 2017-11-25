@@ -13,7 +13,7 @@
 	<jsp:include page="../_menu.jsp"/>
 	<div class="container">
 		<h3>CPU List</h3>
-		<table class="table">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<td>ID</td>

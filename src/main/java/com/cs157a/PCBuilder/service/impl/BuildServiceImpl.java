@@ -28,6 +28,8 @@ import com.cs157a.PCBuilder.service.CaseService;
 import com.cs157a.PCBuilder.service.GPUService;
 import com.cs157a.PCBuilder.service.MotherboardService;
 import com.cs157a.PCBuilder.service.PSUService;
+import com.cs157a.PCBuilder.service.RAMService;
+import com.cs157a.PCBuilder.service.StorageService;
 import com.cs157a.PCBuilder.service.UserService;
 import com.cs157a.PCBuilder.service.impl.PostServiceImpl.PostMapper;
 import com.cs157a.PCBuilder.service.CoolerService;
@@ -50,6 +52,10 @@ public class BuildServiceImpl implements BuildService{
 	GPUService gpuService;
 	@Autowired
 	PSUService psuService;
+	@Autowired
+	RAMService ramService;
+	@Autowired
+	StorageService storageService;
 	@Autowired
 	CoolerService coolerService;
 	@Autowired
@@ -149,6 +155,7 @@ public class BuildServiceImpl implements BuildService{
 			build.setMotherboard(motherboardService.get(result.getInt("motherboard_id")));
 			build.setGpu(gpuService.get(result.getInt("gpu_id")));
 			build.setPsu(psuService.get(result.getInt("psu_id")));
+			build.setRamList(ramService.selectAll(result.getInt("id")));
 			build.setCooler(coolerService.get(result.getInt("cooler_id")));
 			build.setComputerCase(caseService.get(result.getInt("computer_case_id")));
 			return build;

@@ -34,6 +34,14 @@ public class RAMServiceImpl implements RAMService{
 			return ramList.get(0);
 		return null;
 	}
+	public List<RAM> selectAll(int buildId) {
+		String sql = "SELECT r.* "
+				+ "FROM build_ram br INNER JOIN ram r "
+				+ "ON br.ram_id = r.id "
+				+ "WHERE br.build_id = ?";
+		List<RAM> ramList = jdbcTemplate.query(sql, new RAMMapper(), new Object[] {buildId});
+		return ramList;
+	}
 }
 class RAMMapper implements RowMapper<RAM> {
 	public RAM mapRow(ResultSet result, int rowNum) throws SQLException {

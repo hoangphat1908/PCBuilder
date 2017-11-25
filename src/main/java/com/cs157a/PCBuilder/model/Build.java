@@ -1,6 +1,6 @@
 package com.cs157a.PCBuilder.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Build {
 	private int id;
@@ -10,14 +10,10 @@ public class Build {
 	private Motherboard motherboard;
 	private GPU gpu;
 	private PSU psu;
-	private ArrayList<RAM> ramList;
-	private ArrayList<Storage> storageList;
+	private List<RAM> ramList;
+	private List<Storage> storageList;
 	private Cooler cooler;
 	private Case computerCase;
-	public Build() {
-		ramList = new ArrayList<RAM>();
-		storageList = new ArrayList<Storage>();
-	}
 	public int getId() {
 		return id;
 	}
@@ -61,14 +57,20 @@ public class Build {
 	public void setPsu(PSU psu) {
 		this.psu = psu;
 	}
-	public ArrayList<RAM> getRamList() {
+	public List<RAM> getRamList() {
 		return ramList;
+	}
+	public void setRamList(List<RAM> ramList) {
+		this.ramList = ramList;
 	}
 	public void insertRam(RAM ram) {
 		this.ramList.add(ram);
 	}
-	public ArrayList<Storage> getStorageList() {
+	public List<Storage> getStorageList() {
 		return storageList;
+	}
+	public void setStorageList(List<Storage> storageList) {
+		this.storageList = storageList;
 	}
 	public void insertStorageList(Storage storage) {
 		this.storageList.add(storage);

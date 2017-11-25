@@ -40,58 +40,119 @@
 		   		</tr>
 		   </table>
 		   -->
-		   
 			<div class="panel panel-default">
-				<div class="panel-heading">CPU</div>
-				
-				<table class="table">
-					<c:choose>
-						<c:when test="${build.cpu != null}">	
-							<tr>
-								<td width="60%" >${build.cpu.name}</td>
-								<td width="30%">$${build.cpu.price}</td>
-								<td width="10%" align="right">
-									<a href = "${contextPath}/mybuild/remove/cpu">
-		  								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-									</a>
-								</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-							<tr>
-								<td align="center">
-									<a class="btn btn-primary" href="${contextPath}/cpu">Choose a CPU</a>
-								</td>
-							</tr>
-						</c:otherwise>
-					</c:choose>
-				</table>
-			</div>
-			
-			<div class="panel panel-default">
-				<div class="panel-heading">Motherboard</div>
-				
-				<table class="table">
-					<c:choose>
-						<c:when test="${build.motherboard != null}">	
-							<tr>
-								<td width="60%" >${build.motherboard.name}</td>
-								<td width="30%">$${build.motherboard.price}</td>
-								<td width="10%" align="right">
-									<a href = "${contextPath}/mybuild/remove/motherboard">
-		  								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-									</a>
-								</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-							<tr>
-								<td align="center">
-									<a class="btn btn-primary" href="${contextPath}/motherboard">Choose a motherboard</a>
-								</td>
-							</tr>
-						</c:otherwise>
-					</c:choose>
+				<div class="panel-heading">My build</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>
+								<div class="row">
+								    <div class="col-md-3 h4"><strong>Component</strong></div>
+								    <div class="col-md-9">
+								        <div class="row">
+								            <div class="col-md-8 h4"><strong>Selection</strong></div>
+								        	<div class="col-md-4 h4"><strong>Price</strong></div>
+								        </div>
+								    </div>
+								    
+								</div>
+							</td>
+						</tr>
+					</thead>
+					<!-- CPU Row -->
+					<tr>
+						<td>
+							<div class="row">
+							    <div class="col-md-3"><a href="${contextPath}/cpu">CPU</a></div>
+							    <div class="col-md-9">
+								    <div class="row">
+									    <c:choose>
+											<c:when test="${build.cpu != null}">
+												<div class="col-md-8"><strong>${build.cpu.name}</strong></div>
+											    <div class="col-md-3">$${build.cpu.price}</div>
+											    <div class="col-md-1" align="right">
+											    	<a href = "${contextPath}/mybuild/remove/cpu">
+							 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+													</a>
+											    </div>
+									    	</c:when>
+									    	<c:otherwise>												
+									            <div class="col-md-12">
+									            	<a class="btn btn-primary" href="${contextPath}/cpu">Choose a CPU</a>
+									            </div>
+											</c:otherwise>
+									    </c:choose>
+								    </div>
+							    </div>
+							</div>
+						</td>
+					</tr>
+					<!-- Motherboard Row -->
+					<tr>
+						<td>
+							<div class="row">
+							    <div class="col-md-3"><a href="${contextPath}/motherboard">Motherboard</a></div>
+							    <div class="col-md-9">
+								    <div class="row">
+									    <c:choose>
+											<c:when test="${build.motherboard != null}">
+												<div class="col-md-8"><strong>${build.motherboard.name}</strong></div>
+											    <div class="col-md-3">$${build.motherboard.price}</div>
+											    <div class="col-md-1" align="right">
+											    	<a href = "${contextPath}/mybuild/remove/motherboard">
+							 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+													</a>
+											    </div>
+									    	</c:when>
+									    	<c:otherwise>
+									            <div class="col-md-12">
+									            	<a class="btn btn-primary" href="${contextPath}/motherboard">Choose a Motherboard</a>
+									            </div>
+											</c:otherwise>
+									    </c:choose>
+								    </div>
+							    </div>
+							</div>
+						</td>
+					</tr>
+					<!-- RAM Row -->
+					<tr>
+						<td>
+							<div class="row">
+							    <div class="col-md-3"><a href="${contextPath}/ram">RAM</a></div>
+							    <div class="col-md-9">
+								    
+								    <c:choose>
+										<c:when test="${build.ramList.size() != 0}">
+											<c:forEach items="${build.ramList}" var="ram">
+												<div class="row">
+													<div class="col-md-8"><strong>${ram.name}</strong></div>
+												    <div class="col-md-3">$${ram.price}</div>
+												    <div class="col-md-1" align="right">
+												    	<a href = "${contextPath}/mybuild/remove/ram">
+								 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+														</a>
+												    </div>
+											    </div>
+										    </c:forEach>
+										    <div class="row">
+										    	<div class="col-md-12">
+									            	<a class="btn btn-primary" href="${contextPath}/ram">Add additional RAM</a>
+									            </div>
+										    </div>
+								    	</c:when>
+								    	<c:otherwise>
+									        <div class="row">
+									            <div class="col-md-12">
+									            	<a class="btn btn-primary" href="${contextPath}/ram">Choose a RAM</a>
+									            </div>
+									        </div>
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</c:if>
