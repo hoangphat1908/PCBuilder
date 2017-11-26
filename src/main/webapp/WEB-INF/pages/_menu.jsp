@@ -40,6 +40,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${pageContext.request.userPrincipal.name}<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="${contextPath}/profile">Your profile</a></li>
+							<li><a href="${contextPath}/mybuild">Your current build</a></li>
 							<li><a href="${contextPath}/logout">Sign Out</a></li>
 						</ul>
 					</li>

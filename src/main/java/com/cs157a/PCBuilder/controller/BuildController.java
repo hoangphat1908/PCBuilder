@@ -1,5 +1,7 @@
 package com.cs157a.PCBuilder.controller;
 
+import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cs157a.PCBuilder.model.Build;
+import com.cs157a.PCBuilder.model.RAM;
 import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -57,6 +60,19 @@ public class BuildController {
 			Build build = buildService.get(user.getCurrentBuildId());
 			if (build != null) {
 				buildService.removeMotherboard(build);
+			}
+			
+		}
+		return "redirect:/mybuild";
+	}
+	@RequestMapping(value = "/mybuild/remove/ram/{id}", method = RequestMethod.GET)
+	public String removeRAM(@PathVariable("id") int id, Model model) {
+		User user = userService.getCurrentUser();
+		if (user != null) {
+			Build build = buildService.get(user.getCurrentBuildId());
+			RAM ram = build.getRamList().get(id);
+			if (build != null) {
+				buildService.removeRAM(build, ram);
 			}
 			
 		}

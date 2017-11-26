@@ -35,6 +35,11 @@
 	   			<td>${ram.type}</td>
 	   			<td>${ram.speed}</td>
 	   			<td>$${ram.price}</td>
+	   			<td>
+				    <form action="${contextPath}/ram/${ram.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

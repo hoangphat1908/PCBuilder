@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -114,6 +115,16 @@ public class BuildServiceImpl implements BuildService{
 		jdbcTemplate.update(sql, new Object[] { build.getId() });
 	}
 	
+	public void insertRAM(Build build, RAM ram) {
+		String sql = "INSERT INTO build_ram (build_id, ram_id)" + " VALUES (?, ?)";		
+		jdbcTemplate.update(sql, new Object[] { build.getId(), ram.getId() });
+	}
+
+	public void removeRAM(Build build, RAM ram) {
+		String sql = "DELETE FROM build_ram WHERE build_id = ? AND ram_id = ? LIMIT 1";		
+		jdbcTemplate.update(sql, new Object[] { build.getId(), ram.getId() });
+	}
+	
 	public void delete(int buildId) {
 		// TODO Auto-generated method stub
 		
@@ -140,10 +151,6 @@ public class BuildServiceImpl implements BuildService{
 		return null;
 	}
 
-	public void insertRAM(Build buid) {
-		// TODO Auto-generated method stub
-		
-	}
 	class BuildMapper implements RowMapper<Build> {
 		
 		public Build mapRow(ResultSet result, int rowNum) throws SQLException {
@@ -155,7 +162,9 @@ public class BuildServiceImpl implements BuildService{
 			build.setMotherboard(motherboardService.get(result.getInt("motherboard_id")));
 			build.setGpu(gpuService.get(result.getInt("gpu_id")));
 			build.setPsu(psuService.get(result.getInt("psu_id")));
-			build.setRamList(ramService.selectAll(result.getInt("id")));
+			List<RAM> ramList = ramService.selectAll(result.getInt("id"));
+			Collections.sort(ramList, (a, b) -> a.getModel().compareTo(b.getModel()));
+			build.setRamList(ramList);
 			build.setCooler(coolerService.get(result.getInt("cooler_id")));
 			build.setComputerCase(caseService.get(result.getInt("computer_case_id")));
 			return build;

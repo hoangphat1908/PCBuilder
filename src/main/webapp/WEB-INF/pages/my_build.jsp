@@ -124,12 +124,12 @@
 								    
 								    <c:choose>
 										<c:when test="${build.ramList.size() != 0}">
-											<c:forEach items="${build.ramList}" var="ram">
+											<c:forEach items="${build.ramList}" var="ram" varStatus="loop">
 												<div class="row">
 													<div class="col-md-8"><strong>${ram.name}</strong></div>
 												    <div class="col-md-3">$${ram.price}</div>
 												    <div class="col-md-1" align="right">
-												    	<a href = "${contextPath}/mybuild/remove/ram">
+												    	<a href = "${contextPath}/mybuild/remove/ram/${loop.index}">
 								 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 														</a>
 												    </div>
