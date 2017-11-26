@@ -3,7 +3,7 @@ package com.cs157a.PCBuilder.model;
 public class Comment {
 	private int id;
 	private User user;
-    private int postId;
+    private Post post;
     private String body;
 	public int getId() {
 		return id;
@@ -17,11 +17,11 @@ public class Comment {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getPostId() {
-		return postId;
+	public Post getPost() {
+		return post;
 	}
-	public void setPostId(int postId) {
-		this.postId = postId;
+	public void setPost(Post post) {
+		this.post = post;
 	}
 	public String getBody() {
 		return body;

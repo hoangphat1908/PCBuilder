@@ -83,7 +83,7 @@ public class UserController {
     	Build build = buildService.get(user.getCurrentBuildId());
     	List<Build> builds = buildService.selectAll(user);
     	model.addAttribute("postList",posts);
-    	model.addAttribute("commendList",comments); 
+    	model.addAttribute("commentList",comments); 
     	model.addAttribute("currentBuild", build);
     	model.addAttribute("buildList", builds);
         return "profile";

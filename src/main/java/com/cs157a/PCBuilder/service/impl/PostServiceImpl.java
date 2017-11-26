@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Post;
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.CommentService;
 import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.UserService;
 import com.cs157a.PCBuilder.service.impl.BuildServiceImpl.BuildMapper;
@@ -28,6 +29,8 @@ public class PostServiceImpl implements PostService{
 	
 	@Autowired
 	UserService userService;
+	@Autowired
+	CommentService commentService;
 	public void insert(Post post) {
 		if (userService.getCurrentUser() == null)
 			return;
@@ -41,6 +44,13 @@ public class PostServiceImpl implements PostService{
 	}
 
 	public Post get(int postId) {
+		String sql = "SELECT * FROM post WHERE id = ?";		
+		List<Post> postList = jdbcTemplate.query(sql, new PostMapper(), new Object[] {postId});
+		if (!postList.isEmpty())
+			return postList.get(0);
+		return null;
+	}
+	public Post getSimple(int postId) {
 		String sql = "SELECT * FROM post WHERE id = ?";		
 		List<Post> postList = jdbcTemplate.query(sql, new PostMapper(), new Object[] {postId});
 		if (!postList.isEmpty())
@@ -66,6 +76,7 @@ public class PostServiceImpl implements PostService{
 			post.setUser(userService.get(result.getInt("user_id")));
 			post.setTitle(result.getString("title"));
 			post.setBody(result.getString("body"));
+			post.setCommentList(commentService.selectAll(result.getInt("id")));
 			return post;
 		}
 	}

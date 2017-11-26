@@ -8,6 +8,6 @@ import com.cs157a.PCBuilder.model.User;
 
 public interface CommentService {
 	public void insert(Comment comment);
-	public List<Comment> selectAll(Post post);
+	public List<Comment> selectAll(int postId);
 	public List<Comment> selectAll(User user);
 }

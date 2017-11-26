@@ -35,9 +35,8 @@ public class CommentServiceImpl implements CommentService{
 	public void insert(Comment comment) {
 		if (userService.getCurrentUser() == null)
 			return;
-		System.out.println(comment.getPostId());
 		String sql = "INSERT INTO comment (user_id, post_id, body)" + " VALUES (?, ?, ?)";		
-		jdbcTemplate.update(sql, new Object[] { userService.getCurrentUser().getId(), comment.getPostId(), comment.getBody() });
+		jdbcTemplate.update(sql, new Object[] { userService.getCurrentUser().getId(), comment.getPost().getId(), comment.getBody() });
 	}
 	public List<Comment> selectAll(User user) {
 		String sql = "SELECT * FROM comment WHERE user_id = ?";		
@@ -46,19 +45,28 @@ public class CommentServiceImpl implements CommentService{
 			return commentList;
 		return null;
 	}
-	public List<Comment> selectAll(Post post) {
+	public List<Comment> selectAll(int postId) {
 		String sql = "SELECT * FROM comment WHERE post_id = ?";		
-		List<Comment> commentList = jdbcTemplate.query(sql, new CommentMapper(), new Object[] {post.getId()});
+		List<Comment> commentList = jdbcTemplate.query(sql, new SimpleCommentMapper(), new Object[] {postId});
 		if (commentList.size() > 0)
 			return commentList;
 		return null;
+	}
+	class SimpleCommentMapper implements RowMapper<Comment> {
+		public Comment mapRow(ResultSet result, int rowNum) throws SQLException {
+			Comment comment = new Comment();
+			comment.setId(result.getInt("id"));
+			comment.setUser(userService.get(result.getInt("user_id")));
+			comment.setBody(result.getString("body"));
+			return comment;
+		}
 	}
 	class CommentMapper implements RowMapper<Comment> {
 		public Comment mapRow(ResultSet result, int rowNum) throws SQLException {
 			Comment comment = new Comment();
 			comment.setId(result.getInt("id"));
 			comment.setUser(userService.get(result.getInt("user_id")));
-			comment.setPostId(postService.get(result.getInt("post_id")).getId());
+			comment.setPost(postService.getSimple(result.getInt("post_id")));
 			comment.setBody(result.getString("body"));
 			return comment;
 		}

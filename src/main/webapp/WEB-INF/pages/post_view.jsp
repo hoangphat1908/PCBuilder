@@ -30,9 +30,9 @@
 	   			<td>${post.body}</td>
 	   		</tr>
 	   </table>
-	   <c:if test="${commentList != null}">
+	   <c:if test="${post.commentList.size() > 0}">
 		   <h3>Comment List</h3>
-		    <table border="1" width="70%" class="table table-striped">
+		    <table class="table table-striped">
 		    	<thead>
 		   		<tr>
 		   			<td>ID</td>
@@ -40,7 +40,7 @@
 		   			<td>Body</td>
 		   		</tr>
 		   		</thead>
-		   		<c:forEach items="${commentList}" var="comment">
+		   		<c:forEach items="${post.commentList}" var="comment">
 		   		<tr>
 		   			<td>${comment.id}</td>
 		   			<td>${comment.user.username}</td>

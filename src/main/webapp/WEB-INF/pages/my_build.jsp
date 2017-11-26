@@ -123,7 +123,7 @@
 							    <div class="col-md-9">
 								    
 								    <c:choose>
-										<c:when test="${build.ramList.size() != 0}">
+										<c:when test="${build.ramList.size() > 0}">
 											<c:forEach items="${build.ramList}" var="ram" varStatus="loop">
 												<div class="row">
 													<div class="col-md-8"><strong>${ram.name}</strong></div>

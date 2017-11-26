@@ -8,6 +8,7 @@ import com.cs157a.PCBuilder.model.User;
 public interface PostService {
 	public void insert(Post post);
 	public void update(Post post);
+	public Post getSimple(int postId);
 	public Post get(int postId);
 	public List<Post> selectAll();
 	public List<Post> selectAll(User user);
