@@ -97,9 +97,24 @@
 						   			<td>${build.psu.model}</td>
 						   			<td>${build.cooler.model}</td>
 						   			<td>${build.computerCase.model}</td>
+						   			<td>
+						   				<a href = "${contextPath}/mybuild/set/${build.id}">
+											Set current build
+										</a>
+						   			</td>
+						   			<td>
+							   			<a href = "${contextPath}/profile/remove/build/${build.id}">
+				 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+										</a>
+									</td>
 						   		</tr>
 					   		</c:forEach>
-					   </table>												
+					   </table>	
+						<td>
+			   				<a href = "${contextPath}/mybuild/new">
+								Create a new build
+							</a>
+			   			</td>									
 					</div>
 					<div id="posts" class="tab-pane fade">
 						<div class="page-header">

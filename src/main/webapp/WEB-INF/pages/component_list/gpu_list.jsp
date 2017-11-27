@@ -35,6 +35,11 @@
 	   			<td>${gpu.memory}GB</td>
 	   			<td>${gpu.coreClock}GHz</td>
 	   			<td>$${gpu.price}</td>
+	   			<td>
+				    <form action="${contextPath}/gpu/${gpu.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

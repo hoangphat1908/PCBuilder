@@ -11,35 +11,200 @@
 <body>
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
-	<c:if test="${build != null}">
-	    <table border="1" width="70%" class="table table-striped">
-	    	<thead>
-	   		<tr>
-	   			<td>ID</td>
-	   			<td>Username</td>
-	   			<td>name</td>
-	   			<td>CPU</td>
-	   			<td>Motherboard</td>
-	   			<td>GPU</td>
-	   			<td>PSU</td>
-	   			<td>Cooler</td>
-				<td>Case</td>
-	   		</tr>
-	   		</thead>
-	   		<tr>
-	   			<td>${build.id}</td>
-	   			<td>${build.user.username}</td>
-	   			<td>${build.name}</td>
-	   			<td>${build.cpu.model}</td>
-	   			<td>${build.motherboard.model}</td>
-	   			<td>${build.gpu.model}</td>
-	   			<td>${build.psu.model}</td>
-	   			<td>${build.cooler.model}</td>
-	   			<td>${build.computerCase.model}</td>
-	   		</tr>
-	   </table>
-	</c:if>
-   </div>
+		<c:if test="${build != null}">
+			<div class="page-header">
+				<h1>${build.name}
+					<small>by ${build.user.username}</small>
+				</h1>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>
+							<div class="row">
+							    <div class="col-md-3 h4"><strong>Component</strong></div>
+							    <div class="col-md-9">
+							        <div class="row">
+							            <div class="col-md-8 h4"><strong>Selection</strong></div>
+							        	<div class="col-md-4 h4"><strong>Price</strong></div>
+							        </div>
+							    </div>
+							    
+							</div>
+						</td>
+					</tr>
+				</thead>
+				<!-- CPU Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/cpu">CPU</a></div>
+						    <div class="col-md-9">
+							    <div class="row">
+								    <c:choose>
+										<c:when test="${build.cpu != null}">
+											<div class="col-md-8"><strong>${build.cpu.name}</strong></div>
+										    <div class="col-md-4">$${build.cpu.price}</div>
+								    	</c:when>
+								    </c:choose>
+							    </div>
+						    </div>
+						</div>
+					</td>
+				</tr>
+				<!-- Motherboard Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/motherboard">Motherboard</a></div>
+						    <div class="col-md-9">
+							    <div class="row">
+								    <c:choose>
+										<c:when test="${build.motherboard != null}">
+											<div class="col-md-8"><strong>${build.motherboard.name}</strong></div>
+										    <div class="col-md-4">$${build.motherboard.price}</div>
+								    	</c:when>
+								    </c:choose>
+							    </div>
+						    </div>
+						</div>
+					</td>
+				</tr>
+				<!-- GPU Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/gpu">GPU</a></div>
+						    <div class="col-md-9">
+							    <div class="row">
+								    <c:choose>
+										<c:when test="${build.gpu != null}">
+											<div class="col-md-8"><strong>${build.gpu.name}</strong></div>
+										    <div class="col-md-4">$${build.gpu.price}</div>
+								    	</c:when>
+								    </c:choose>
+							    </div>
+						    </div>
+						</div>
+					</td>
+				</tr>
+				<!-- PSU Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/psu">PSU</a></div>
+						    <div class="col-md-9">
+							    <div class="row">
+								    <c:choose>
+										<c:when test="${build.psu != null}">
+											<div class="col-md-8"><strong>${build.psu.name}</strong></div>
+										    <div class="col-md-4">$${build.psu.price}</div>
+								    	</c:when>
+								    </c:choose>
+							    </div>
+						    </div>
+						</div>
+					</td>
+				</tr>
+				<!-- Cooler Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/cooler">Cooler</a></div>
+						    <div class="col-md-9">
+							    <div class="row">
+								    <c:choose>
+										<c:when test="${build.cooler != null}">
+											<div class="col-md-8"><strong>${build.cooler.name}</strong></div>
+										    <div class="col-md-4">$${build.cooler.price}</div>
+								    	</c:when>
+								    </c:choose>
+							    </div>
+						    </div>
+						</div>
+					</td>
+				</tr>
+				<!-- Case Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/case">Case</a></div>
+						    <div class="col-md-9">
+							    <div class="row">
+								    <c:choose>
+										<c:when test="${build.computerCase != null}">
+											<div class="col-md-8"><strong>${build.computerCase.name}</strong></div>
+										    <div class="col-md-4">$${build.computerCase.price}</div>
+								    	</c:when>
+								    </c:choose>
+							    </div>
+						    </div>
+						</div>
+					</td>
+				</tr>
+				<!-- RAM Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/ram">RAM</a></div>
+						    <div class="col-md-9">
+							    
+							    <c:choose>
+									<c:when test="${build.ramList.size() > 0}">
+										<c:forEach items="${build.ramList}" var="ram" varStatus="loop">
+											<div class="row">
+												<div class="col-md-8"><strong>${ram.name}</strong></div>
+											    <div class="col-md-4">$${ram.price}</div>
+										    </div>
+									    </c:forEach>
+							    	</c:when>
+								</c:choose>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<!-- Storage Row -->
+				<tr>
+					<td>
+						<div class="row">
+						    <div class="col-md-3"><a href="${contextPath}/storage">Storage</a></div>
+						    <div class="col-md-9">
+							    
+							    <c:choose>
+									<c:when test="${build.storageList.size() > 0}">
+										<c:forEach items="${build.storageList}" var="storage" varStatus="loop">
+											<div class="row">
+												<div class="col-md-8"><strong>${storage.name}</strong></div>
+											    <div class="col-md-4">$${storage.price}</div>
+										    </div>
+									    </c:forEach>
+							    	</c:when>
+								</c:choose>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<!-- Cost Row -->
+				<c:if test="${build.cost > 0}">
+					<tfoot>
+						<tr>
+							<td>
+								<div class="row">
+								    <div class="col-md-3"><strong>Total cost</strong></div>
+								    <div class="col-md-9">
+									    <div class="row">
+													<div class="col-md-8"></div>
+												    <div class="col-md-4"><strong>$${build.cost}</strong></div>
+									    </div>
+								    </div>
+								</div>
+							</td>
+						</tr>
+					</tfoot>
+				</c:if>
+			</table>
+		</c:if>
+	</div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>

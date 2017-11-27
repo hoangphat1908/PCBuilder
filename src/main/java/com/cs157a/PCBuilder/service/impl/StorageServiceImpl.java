@@ -34,6 +34,15 @@ public class StorageServiceImpl implements StorageService{
 			return storageList.get(0);
 		return null;
 	}
+	@Override
+	public List<Storage> selectAll(int buildId) {
+		String sql = "SELECT s.* "
+				+ "FROM build_storage bs INNER JOIN storage s "
+				+ "ON bs.storage_id = s.id "
+				+ "WHERE bs.build_id = ?";
+		List<Storage> storageList = jdbcTemplate.query(sql, new StorageMapper(), new Object[] {buildId});
+		return storageList;
+	}
 }
 class StorageMapper implements RowMapper<Storage> {
 	public Storage mapRow(ResultSet result, int rowNum) throws SQLException {

@@ -31,6 +31,11 @@
 	   			<td>${cooler.noise}</td>
 	   			<td>${cooler.rpm}</td>
 	   			<td>$${cooler.price}</td>
+	   			<td>
+				    <form action="${contextPath}/cooler/${cooler.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

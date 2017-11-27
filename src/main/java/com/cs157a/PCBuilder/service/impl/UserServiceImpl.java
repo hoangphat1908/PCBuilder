@@ -16,9 +16,14 @@ import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Build;
 import com.cs157a.PCBuilder.model.CPU;
+import com.cs157a.PCBuilder.model.Case;
 import com.cs157a.PCBuilder.model.Component;
+import com.cs157a.PCBuilder.model.Cooler;
+import com.cs157a.PCBuilder.model.GPU;
 import com.cs157a.PCBuilder.model.Motherboard;
+import com.cs157a.PCBuilder.model.PSU;
 import com.cs157a.PCBuilder.model.RAM;
+import com.cs157a.PCBuilder.model.Storage;
 import com.cs157a.PCBuilder.model.User;
 import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -69,6 +74,15 @@ public class UserServiceImpl implements UserService{
 	    String name = auth.getName();
 	    return find(name);
 	}
+	
+	public void setCurrentBuild(int currentBuildId) {
+		User user = getCurrentUser();
+		if (user != null) {
+			String sql = "UPDATE user SET current_build_id = ? WHERE id = ?";		
+			jdbcTemplate.update(sql, new Object[] { currentBuildId, user.getId() });
+		}
+	}
+	
 	public void updateCurrentBuild(Component component) {
 		User user = getCurrentUser();
 		if (user != null) {
@@ -79,8 +93,23 @@ public class UserServiceImpl implements UserService{
 			if (component instanceof Motherboard) {
 				buildService.chooseMotherboard(build, (Motherboard)component);
 			}
+			if (component instanceof GPU) {
+				buildService.chooseGPU(build, (GPU)component);
+			}
+			if (component instanceof PSU) {
+				buildService.choosePSU(build, (PSU)component);
+			}
+			if (component instanceof Cooler) {
+				buildService.chooseCooler(build, (Cooler)component);
+			}
+			if (component instanceof Case) {
+				buildService.chooseCase(build, (Case)component);
+			}
 			if (component instanceof RAM) {
 				buildService.insertRAM(build, (RAM)component);
+			}
+			if (component instanceof Storage) {
+				buildService.insertStorage(build, (Storage)component);
 			}
 		}
 	}

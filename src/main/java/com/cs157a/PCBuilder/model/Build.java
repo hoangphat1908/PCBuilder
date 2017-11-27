@@ -14,10 +14,10 @@ public class Build {
 	private List<Storage> storageList;
 	private Cooler cooler;
 	private Case computerCase;
+	private double cost;
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -86,5 +86,32 @@ public class Build {
 	}
 	public void setComputerCase(Case computerCase) {
 		this.computerCase = computerCase;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public void calculateCost() {
+		double totalCost = 0;
+		if (this.cpu != null)
+			totalCost += cpu.price;
+		if (this.motherboard != null)
+			totalCost += motherboard.price;
+		if (this.gpu != null)
+			totalCost += gpu.price;
+		if (this.psu != null)
+			totalCost += psu.price;
+		if (this.cooler != null)
+			totalCost += cooler.price;
+		if (this.computerCase != null)
+			totalCost += computerCase.price;
+		if (this.ramList != null) {
+			for (RAM ram : ramList)
+				totalCost += ram.getPrice();
+		}
+		if (this.storageList != null) {
+			for (Storage storage : storageList)
+				totalCost += storage.getPrice();
+		}
+		this.cost = Double.parseDouble(String.format("%.2f",totalCost));  
 	}
 }

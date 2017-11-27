@@ -37,6 +37,11 @@
 	   			<td>${psu.efficiency}</td>
 	   			<td>${psu.modular}</td>
 	   			<td>$${psu.price}</td>
+	   			<td>
+				    <form action="${contextPath}/psu/${psu.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

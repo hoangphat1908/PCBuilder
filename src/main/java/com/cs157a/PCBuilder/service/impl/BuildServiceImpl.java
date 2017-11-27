@@ -19,7 +19,11 @@ import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Build;
 import com.cs157a.PCBuilder.model.CPU;
+import com.cs157a.PCBuilder.model.Case;
+import com.cs157a.PCBuilder.model.Cooler;
+import com.cs157a.PCBuilder.model.GPU;
 import com.cs157a.PCBuilder.model.Motherboard;
+import com.cs157a.PCBuilder.model.PSU;
 import com.cs157a.PCBuilder.model.RAM;
 import com.cs157a.PCBuilder.model.Storage;
 import com.cs157a.PCBuilder.model.User;
@@ -62,37 +66,31 @@ public class BuildServiceImpl implements BuildService{
 	@Autowired
 	CaseService caseService;
 	
-	public void insert(Build build) {
-		final String sql1 = "INSERT INTO build (user_id, name, cpu_id, motherboard_id, gpu_id, psu_id, cooler_id, computer_case_id)" + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";		
-		final Build insertBuild = build;
-		KeyHolder keyHolder = new GeneratedKeyHolder();
-		jdbcTemplate.update(
-				new PreparedStatementCreator() {
-					public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-						PreparedStatement pst = 
-								con.prepareStatement(sql1, new String[] {"id"});
-						pst.setInt(1, insertBuild.getUser().getId());
-						pst.setString(2, insertBuild.getName());
-						pst.setInt(3, insertBuild.getCpu().getId());
-						pst.setInt(4, insertBuild.getMotherboard().getId());
-						pst.setInt(5, insertBuild.getGpu().getId());
-						pst.setInt(6, insertBuild.getPsu().getId());
-						pst.setInt(7, insertBuild.getCooler().getId());
-						pst.setInt(8, insertBuild.getComputerCase().getId());
-						return pst;
-					}
-					
-				}, 
-				keyHolder);
-		int buildId = (Integer) keyHolder.getKey();
-		
-		String sql2 = "INSERT INTO build_ram (build_id, ram_id)" + " VALUES (?, ?)";		
-		for (RAM ram : insertBuild.getRamList())
-			jdbcTemplate.update(sql2, new Object[] { buildId, ram.getId() });
-
-		String sql3 = "INSERT INTO build_storage (build_id, storage_id)" + " VALUES (?, ?)";		
-		for (Storage storage : insertBuild.getStorageList())
-			jdbcTemplate.update(sql3, new Object[] { buildId, storage.getId() });
+	public void newBuild() {
+		User user = userService.getCurrentUser();
+		if (user != null) {
+			final String sql1 = "INSERT INTO build (user_id, name)" + " VALUES (?, ?)";		
+			KeyHolder keyHolder = new GeneratedKeyHolder();
+			jdbcTemplate.update(
+					new PreparedStatementCreator() {
+						public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+							PreparedStatement pst = 
+									con.prepareStatement(sql1, new String[] {"id"});
+							pst.setInt(1, user.getId());
+							pst.setString(2, "");
+							return pst;
+						}
+						
+					}, 
+					keyHolder);
+			int buildId = (int) (long) keyHolder.getKey();
+			userService.setCurrentBuild(buildId);
+		}
+	}
+	
+	public void editName(Build build, String name) {
+		String sql = "UPDATE build SET name = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { name, build.getId() });
 	}
 	
 	public void chooseCPU(Build build, CPU cpu) {
@@ -115,6 +113,56 @@ public class BuildServiceImpl implements BuildService{
 		jdbcTemplate.update(sql, new Object[] { build.getId() });
 	}
 	
+	
+	
+	@Override
+	public void chooseGPU(Build build, GPU gpu) {
+		String sql = "UPDATE build SET gpu_id = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { gpu.getId(), build.getId() });
+	}
+
+	@Override
+	public void removeGPU(Build build) {
+		String sql = "UPDATE build SET gpu_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { build.getId() });
+	}
+
+	@Override
+	public void choosePSU(Build build, PSU psu) {
+		String sql = "UPDATE build SET psu_id = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { psu.getId(), build.getId() });
+	}
+
+	@Override
+	public void removePSU(Build build) {
+		String sql = "UPDATE build SET psu_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { build.getId() });
+	}
+
+	@Override
+	public void chooseCooler(Build build, Cooler cooler) {
+		String sql = "UPDATE build SET cooler_id = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { cooler.getId(), build.getId() });
+	}
+
+	@Override
+	public void removeCooler(Build build) {
+		String sql = "UPDATE build SET cooler_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { build.getId() });
+	}
+
+	@Override
+	public void chooseCase(Build build, Case computerCase) {
+		String sql = "UPDATE build SET computer_case_id = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { computerCase.getId(), build.getId() });
+	}
+
+	@Override
+	public void removeCase(Build build) {
+		String sql = "UPDATE build SET computer_case_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { build.getId() });
+	}
+	
 	public void insertRAM(Build build, RAM ram) {
 		String sql = "INSERT INTO build_ram (build_id, ram_id)" + " VALUES (?, ?)";		
 		jdbcTemplate.update(sql, new Object[] { build.getId(), ram.getId() });
@@ -124,10 +172,36 @@ public class BuildServiceImpl implements BuildService{
 		String sql = "DELETE FROM build_ram WHERE build_id = ? AND ram_id = ? LIMIT 1";		
 		jdbcTemplate.update(sql, new Object[] { build.getId(), ram.getId() });
 	}
+
+	@Override
+	public void insertStorage(Build build, Storage storage) {
+		String sql = "INSERT INTO build_storage (build_id, storage_id)" + " VALUES (?, ?)";		
+		jdbcTemplate.update(sql, new Object[] { build.getId(), storage.getId() });
+	}
+
+	@Override
+	public void removeStorage(Build build, Storage storage) {
+		String sql = "DELETE FROM build_storage WHERE build_id = ? AND storage_id = ? LIMIT 1";		
+		jdbcTemplate.update(sql, new Object[] { build.getId(), storage.getId() });
+	}
 	
 	public void delete(int buildId) {
-		// TODO Auto-generated method stub
+		User user = userService.getCurrentUser();
+		if (user != null) {
+			String sql1 = "DELETE FROM build_ram WHERE build_id = ?";		
+			jdbcTemplate.update(sql1, new Object[] { buildId });
+			
+			String sql2 = "DELETE FROM build_storage WHERE build_id = ?";		
+			jdbcTemplate.update(sql2, new Object[] { buildId });	
 		
+			if (user.getCurrentBuildId() == buildId) {
+				String sql3 = "UPDATE user SET current_build_id = NULL WHERE id = ?";		
+				jdbcTemplate.update(sql3, new Object[] { user.getId() });
+			}
+			
+			String sql4 = "DELETE FROM build WHERE id = ?";		
+			jdbcTemplate.update(sql4, new Object[] { buildId });
+		}
 	}
 
 	public List<Build> selectAll() {
@@ -150,7 +224,7 @@ public class BuildServiceImpl implements BuildService{
 			return caseList.get(0);
 		return null;
 	}
-
+	
 	class BuildMapper implements RowMapper<Build> {
 		
 		public Build mapRow(ResultSet result, int rowNum) throws SQLException {
@@ -165,8 +239,12 @@ public class BuildServiceImpl implements BuildService{
 			List<RAM> ramList = ramService.selectAll(result.getInt("id"));
 			Collections.sort(ramList, (a, b) -> a.getModel().compareTo(b.getModel()));
 			build.setRamList(ramList);
+			List<Storage> storageList = storageService.selectAll(result.getInt("id"));
+			Collections.sort(storageList, (a, b) -> a.getModel().compareTo(b.getModel()));
+			build.setStorageList(storageList);
 			build.setCooler(coolerService.get(result.getInt("cooler_id")));
 			build.setComputerCase(caseService.get(result.getInt("computer_case_id")));
+			build.calculateCost();
 			return build;
 		}
 	}

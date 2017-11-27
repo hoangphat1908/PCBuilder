@@ -31,6 +31,11 @@
 	   			<td>${computerCase.type}</td>
 	   			<td>${computerCase.psuIncluded}</td>
 	   			<td>$${computerCase.price}</td>
+	   			<td>
+				    <form action="${contextPath}/case/${computerCase.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

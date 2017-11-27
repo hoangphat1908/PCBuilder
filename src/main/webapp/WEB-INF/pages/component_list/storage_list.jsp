@@ -37,6 +37,11 @@
 	   			<td>${storage.capacity}</td>
 	   			<td>${storage.cache}</td>
 	   			<td>$${storage.price}</td>
+	   			<td>
+				    <form action="${contextPath}/storage/${storage.id}" method="POST">
+						<button type="submit">Add</button>
+					</form>
+				</td>
 	   		</tr>
 	   		</c:forEach>
 	   </table>

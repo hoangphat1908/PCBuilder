@@ -11,5 +11,6 @@ public interface UserService {
 	public User find(String username);
 	public User get(int userId);
 	public User getCurrentUser();
+	public void setCurrentBuild(int currentBuildId);
 	public void updateCurrentBuild(Component component);
 }
