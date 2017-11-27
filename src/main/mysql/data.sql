@@ -56,13 +56,17 @@ VALUES
     ('Asus','PRIME B350-PLUS',79.99,'ATX','AM4',4,64),
     ('Asus','ROG Maximus X Hero',279.99,'ATX','LGA 1151',4,64),
     ('ASRock','AB350 GAMING-ITX/ac',94.99,'ITX','AM4',4,32),
-    ('ASRock','Z270 Extreme 4',134.99,'ATX','LGA 1151',4,64);
+    ('ASRock','Z270 Extreme 4',134.99,'ATX','LGA 1151',4,64),
+    ('Asus','ROG Strix Radeon RX 570',251.56,'ROG Strix','Radeon Rx 570',4,1.31);
     
 INSERT INTO `gpu` (manufacturer, model, price, series, chipset, memory, core_clock)
 VALUES
     ('MSI', 'GTX 1050 Ti GAMING X 4G', 174.99, 'GAMING X 4G', 'GeForce GTX 1050 Ti', 4, 1.29),
     ('Asus', 'STRIX-GTX1080TI-11G-GAMING', 749.99, 'STRIX GAMING', 'GeForce GTX 1080 Ti', 11, 1.49),
-    ('Asus', 'ROG STRIX-GTX1080-A8G-GAMING', 554.98, 'ROG STRIX', 'GeForce GTX 1080', 8, 1.67);
+    ('Asus', 'ROG STRIX-GTX1080-A8G-GAMING', 554.98, 'ROG STRIX', 'GeForce GTX 1080', 8, 1.67),
+    ('EVGA','GTX 1060 SC GAMING',225.99,'SC GAMING','GeForce GTX 1060',3,1.607),
+    ('PowerColor','AXRX 580',324.41,'Radeon','Radeon Rx580',8,1.38),
+    ('EVGA','GTX 1080 Ti FTW3 GAMING',799.99,'FTW3 GAMING','GeForce GTX 1080Ti',11,1.57);
     
     
 INSERT INTO `psu` (manufacturer, model, price, series, form_factor, watts, efficiency, modular)
