@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.cs157a.PCBuilder.model.Post;
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.CommentService;
 import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -31,11 +32,19 @@ public class PostServiceImpl implements PostService{
 	UserService userService;
 	@Autowired
 	CommentService commentService;
+	@Autowired
+	BuildService buildService;
 	public void insert(Post post) {
 		if (userService.getCurrentUser() == null)
 			return;
-		String sql = "INSERT INTO post (user_id, title, body)" + " VALUES (?, ?, ?)";		
-		jdbcTemplate.update(sql, new Object[] { userService.getCurrentUser().getId(), post.getTitle(), post.getBody() });
+		if (post.getBuildId() > 0) {
+			String sql = "INSERT INTO post (user_id, title, body, build_id)" + " VALUES (?, ?, ?, ?)";		
+			jdbcTemplate.update(sql, new Object[] { userService.getCurrentUser().getId(), post.getTitle(), post.getBody(), post.getBuildId() });
+		}
+		else {
+			String sql = "INSERT INTO post (user_id, title, body)" + " VALUES (?, ?, ?)";		
+			jdbcTemplate.update(sql, new Object[] { userService.getCurrentUser().getId(), post.getTitle(), post.getBody() });			
+		}
 	}
 
 	public void update(Post post) {
@@ -77,6 +86,7 @@ public class PostServiceImpl implements PostService{
 			post.setTitle(result.getString("title"));
 			post.setBody(result.getString("body"));
 			post.setCommentList(commentService.selectAll(result.getInt("id")));
+			post.setBuildId(result.getInt("build_id"));
 			return post;
 		}
 	}

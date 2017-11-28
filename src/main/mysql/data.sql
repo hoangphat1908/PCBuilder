@@ -3,7 +3,6 @@ USE `db`;
 SET FOREIGN_KEY_CHECKS=0;
 truncate `build_ram`;
 truncate `build_storage`;
-truncate `post_build`;
 truncate `comment`;
 truncate `post`;
 truncate `build`;

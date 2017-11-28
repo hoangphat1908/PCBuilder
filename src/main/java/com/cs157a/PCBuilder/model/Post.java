@@ -8,6 +8,7 @@ public class Post {
     private String title;
     private String body;
     private List<Comment> commentList;
+    private int buildId;
 	public int getId() {
 		return id;
 	}
@@ -40,5 +41,11 @@ public class Post {
 	}
 	public void insertComment(Comment comment) {
 		this.commentList.add(comment);
+	}
+	public int getBuildId() {
+		return buildId;
+	}
+	public void setBuildId(int buildId) {
+		this.buildId = buildId;
 	}
 }

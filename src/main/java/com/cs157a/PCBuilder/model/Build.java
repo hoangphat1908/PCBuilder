@@ -114,4 +114,8 @@ public class Build {
 		}
 		this.cost = Double.parseDouble(String.format("%.2f",totalCost));  
 	}
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

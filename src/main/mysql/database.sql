@@ -2,8 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `db`;
 
 USE `db`;
 
-/* drop tables in order*/
-
+SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `build_ram`;
 DROP TABLE IF EXISTS `build_storage`;
 DROP TABLE IF EXISTS `post_build`;
@@ -21,6 +20,7 @@ DROP TABLE IF EXISTS `ram`;
 DROP TABLE IF EXISTS `storage`;
 DROP TABLE IF EXISTS `cooler`;
 DROP TABLE IF EXISTS `computer_case`;
+SET FOREIGN_KEY_CHECKS=1;
 
 /* create blog tables */
 
@@ -36,6 +36,7 @@ CREATE TABLE `user` (
 CREATE TABLE `post` (
   `id` INT AUTO_INCREMENT NOT NULL,
   `user_id` INT NOT NULL,
+  `build_id` INT,
   `title` TEXT NOT NULL,
   `body` TEXT NOT NULL,
   PRIMARY KEY (`id`),
@@ -180,14 +181,8 @@ CREATE TABLE `build` (
 ALTER TABLE `user`
 ADD FOREIGN KEY (current_build_id) REFERENCES build(id);
 
-CREATE TABLE `post_build` (
-  `id` INT AUTO_INCREMENT NOT NULL,
-  `post_id` INT NOT NULL,
-  `build_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (post_id) REFERENCES post(id),
-  FOREIGN KEY (build_id) REFERENCES build(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `post`
+ADD FOREIGN KEY (build_id) REFERENCES build(id);
 
 CREATE TABLE `build_ram` (
   `id` INT AUTO_INCREMENT NOT NULL,

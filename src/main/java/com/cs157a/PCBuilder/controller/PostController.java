@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.cs157a.PCBuilder.model.Build;
 import com.cs157a.PCBuilder.model.Comment;
 import com.cs157a.PCBuilder.model.Post;
 import com.cs157a.PCBuilder.model.User;
+import com.cs157a.PCBuilder.service.BuildService;
 import com.cs157a.PCBuilder.service.CommentService;
 import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -30,6 +32,9 @@ public class PostController {
 	@Autowired
 	private  UserService userService;
 	
+	@Autowired
+	private  BuildService buildService;
+	
 	@RequestMapping("/post")
     public String post(Model model) {
     	List<Post> post = postService.selectAll();
@@ -39,7 +44,12 @@ public class PostController {
 	
 	@RequestMapping("/post/new")
     public String newPost(Model model) {
-        model.addAttribute("post",new Post());
+		User user = userService.getCurrentUser();
+    	if (user != null) {
+	        model.addAttribute("post",new Post());
+	        List<Build> buildList = buildService.selectAll(user);
+	        model.addAttribute("buildList", buildList);
+    	}
         return "post_new";
     }
 	
@@ -52,8 +62,12 @@ public class PostController {
 	@RequestMapping("/post/{id}")
     public String viewPost(@PathVariable("id") int id, Model model) {
 		Post post = postService.get(id);
+		if (post != null) {
+		Build build = buildService.get(post.getBuildId());
         model.addAttribute("post",post);
         model.addAttribute("comment", new Comment());
+        model.addAttribute("build",build);
+		}
         return "post_view";
     }
 	@RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
