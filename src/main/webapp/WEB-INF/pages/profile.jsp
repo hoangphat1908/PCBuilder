@@ -40,81 +40,413 @@
 						<div class="page-header">
 						  <h2>Overview</h2>
 						</div>
+						<div class="row">
+						  	<div class="col-md-2 col-md-offset-3" align="center">
+						  		<h4><strong>Builds</strong> <span class="badge">${buildList.size()}</span></h4>
+						  	</div>
+						  	<div class="col-md-2" align="center">
+						  		<h4><strong>Posts</strong> <span class="badge">${postList.size()}</span></h4>
+						  	</div>
+						  	<div class="col-md-2" align="center"> 
+						  		<h4><strong>Comments</strong> <span class="badge">${commentList.size()}</span></h4>
+						  	</div>
+						</div>
 					</div>
 					<div id="builds" class="tab-pane fade">
-						<div class="page-header">
-						  <h2>Builds</h2>
-						</div>							
-						<c:if test="${currentBuild != null}">
-					        <table class="table table-striped">
-						    	<thead>
-							   		<tr>
-							   			<td>ID</td>
-							   			<td>name</td>
-							   			<td>CPU</td>
-							   			<td>Motherboard</td>
-							   			<td>GPU</td>
-							   			<td>PSU</td>
-							   			<td>Cooler</td>
-										<td>Case</td>
-							   		</tr>
-						   		</thead>
-						   		<tr>
-						   			<td><a href = "${contextPath}/mybuild">${currentBuild.id}</a></td>
-						   			<td>${currentBuild.name}</td>
-						   			<td>${currentBuild.cpu.model}</td>
-						   			<td>${currentBuild.motherboard.model}</td>
-						   			<td>${currentBuild.gpu.model}</td>
-						   			<td>${currentBuild.psu.model}</td>
-						   			<td>${currentBuild.cooler.model}</td>
-						   			<td>${currentBuild.computerCase.model}</td>
-						   		</tr>
-							</table>
-						</c:if>
-						<div class="page-header">
-						  <h2>Builds</h2>
-						</div>	
-					    <table class="table table-striped">
-					    	<thead>
-					   		<tr>
-						   			<td>ID</td>
-						   			<td>name</td>
-						   			<td>CPU</td>
-						   			<td>Motherboard</td>
-						   			<td>GPU</td>
-						   			<td>PSU</td>
-						   			<td>Cooler</td>
-									<td>Case</td>
-						   		</tr>
-					   		</thead>
-					   		<c:forEach items="${buildList}" var="build">
-					   		<tr>
-						   			<td><a href = "${contextPath}/build/${build.id}">${build.id}</a></td>
-						   			<td>${build.name}</td>
-						   			<td>${build.cpu.model}</td>
-						   			<td>${build.motherboard.model}</td>
-						   			<td>${build.gpu.model}</td>
-						   			<td>${build.psu.model}</td>
-						   			<td>${build.cooler.model}</td>
-						   			<td>${build.computerCase.model}</td>
-						   			<td>
-						   				<a href = "${contextPath}/mybuild/set/${build.id}">
-											Set current build
-										</a>
-						   			</td>
-						   			<td>
-							   			<a href = "${contextPath}/profile/remove/build/${build.id}">
-				 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-										</a>
-									</td>
-						   		</tr>
-					   		</c:forEach>
-					   </table>	
-						<td>
-			   				<a href = "${contextPath}/mybuild/new">
-								Create a new build
-							</a>
-			   			</td>									
+						<div class="row">
+							<div class="col-md-5">
+								<div class="page-header">
+							 	 	<h2>Your current Build</h2>
+								</div>							
+								<c:if test="${currentBuild != null}">
+									<table class="table table-striped">	
+										<thead>
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12" align="center"><a href = "${contextPath}/mybuild"><h4><strong>${currentBuild.name}</strong></h4></a></div>
+													</div>
+												</td>
+											</tr>
+										</thead>
+										<!-- CPU Row -->
+										<c:if test="${currentBuild.cpu != null}">
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">CPU</div>
+													</div>
+													<div class="row">
+													    <div class="col-md-12">
+														    <div class="row">											
+																<div class="col-md-10"><strong>${currentBuild.cpu.name}</strong></div>
+															    <div class="col-md-2">$${currentBuild.cpu.price}</div>								    	
+														    </div>
+													    </div>
+													</div>
+												</td>
+											</tr>
+										</c:if>
+										<!-- Motherboard Row -->
+										<c:if test="${currentBuild.motherboard != null}">
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">Motherboard</div>
+													</div>
+													<div class="row">
+													    <div class="col-md-12">
+														    <div class="row">
+																<div class="col-md-10"><strong>${currentBuild.motherboard.name}</strong></div>
+															    <div class="col-md-2">$${currentBuild.motherboard.price}</div>
+														    </div>
+													    </div>
+													</div>
+												</td>
+											</tr>
+										</c:if>
+										<!-- GPU Row -->
+										<c:if test="${currentBuild.gpu != null}">
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">GPU</div>
+													</div>
+													<div class="row">
+													    <div class="col-md-12">
+														    <div class="row">
+																<div class="col-md-10"><strong>${currentBuild.gpu.name}</strong></div>
+															    <div class="col-md-2">$${currentBuild.gpu.price}</div>
+														    </div>
+													    </div>
+													</div>
+												</td>
+											</tr>
+										</c:if>
+										<!-- RAM Row -->
+										<c:if test="${currentBuild.ramList.size()>0}">				
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">RAM</div>
+													</div>
+													<c:forEach items="${currentBuild.ramList}" var="ram">	
+														<div class="row">
+														    <div class="col-md-12">
+															    <div class="row">
+																	<div class="col-md-10"><strong>${ram.name}</strong></div>
+																    <div class="col-md-2">$${ram.price}</div>
+															    </div>
+														    </div>
+														</div>
+													</c:forEach>
+												</td>
+											</tr>
+										</c:if>
+										<!-- Storage Row -->
+										<c:if test="${currentBuild.storageList.size()>0}">				
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">Storage</div>
+													</div>
+													<c:forEach items="${currentBuild.storageList}" var="storage">	
+														<div class="row">
+														    <div class="col-md-12">
+															    <div class="row">
+																	<div class="col-md-10"><strong>${storage.name}</strong></div>
+																    <div class="col-md-2">$${storage.price}</div>
+															    </div>
+														    </div>
+														</div>
+													</c:forEach>
+												</td>
+											</tr>
+										</c:if>
+										<!-- PSU Row -->
+										<c:if test="${currentBuild.psu != null}">
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">PSU</div>
+													</div>
+													<div class="row">
+													    <div class="col-md-12">
+														    <div class="row">
+																<div class="col-md-10"><strong>${currentBuild.psu.name}</strong></div>
+															    <div class="col-md-2">$${currentBuild.psu.price}</div>
+														    </div>
+													    </div>
+													</div>
+												</td>
+											</tr>
+										</c:if>
+										<!-- Cooler Row -->
+										<c:if test="${currentBuild.cooler != null}">
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">Cooler</div>
+													</div>
+													<div class="row">
+													    <div class="col-md-12">
+														    <div class="row">
+																<div class="col-md-10"><strong>${currentBuild.cooler.name}</strong></div>
+															    <div class="col-md-2">$${currentBuild.cooler.price}</div>
+														    </div>
+													    </div>
+													</div>
+												</td>
+											</tr>
+										</c:if>
+										<!-- Case Row -->
+										<c:if test="${currentBuild.computerCase != null}">
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-md-12">Case</div>
+													</div>
+													<div class="row">
+													    <div class="col-md-12">
+														    <div class="row">
+																<div class="col-md-10"><strong>${currentBuild.computerCase.name}</strong></div>
+															    <div class="col-md-2">$${currentBuild.computerCase.price}</div>
+														    </div>
+													    </div>
+													</div>
+												</td>
+											</tr>
+										</c:if>
+										<!-- Cost Row -->
+										<c:if test="${currentBuild.cost > 0}">
+											<tfoot>
+												<tr>
+													<td>
+														<div class="row">
+															<div class="col-md-10"><strong>Total cost</strong></div>
+															<div class="col-md-2">$${currentBuild.cost}</div>
+														</div>
+													</td>
+												</tr>
+											</tfoot>
+										</c:if>
+									</table>	
+								</c:if>
+							</div>
+							
+							<div class="col-md-7">
+								<div class="page-header">
+									<h2>Your other builds
+										<small>
+											<a href = "${contextPath}/mybuild/new">
+												Create a new build
+											</a>	
+										</small>
+									</h2>
+								</div>	
+								<div class="panel-group" id="accordion">
+									<c:forEach items="${buildList}" var="build" varStatus="loop">
+										<div class="panel panel-default">
+											<div class="panel-heading">
+												<div class="row">
+													<div class="col-md-11">
+														<h4 class="panel-title">
+															<a data-toggle="collapse" data-parent="#accordion" href="#collapse${loop.index}">${build.name}</a>
+														</h4>
+													</div>
+													<div class="col-md-1">
+														<a href = "${contextPath}/build/${build.id}">
+								 							<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+														</a>
+													</div>
+												</div>
+											</div>
+											<div id="collapse${loop.index}" class="panel-collapse collapse">
+												<div class="panel-body">
+													<table class="table table-striped">	
+														<!-- CPU Row -->
+														<c:if test="${build.cpu != null}">
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">CPU</div>
+																	</div>
+																	<div class="row">
+																	    <div class="col-md-12">
+																		    <div class="row">											
+																				<div class="col-md-10"><strong>${build.cpu.name}</strong></div>
+																			    <div class="col-md-2">$${build.cpu.price}</div>								    	
+																		    </div>
+																	    </div>
+																	</div>
+																</td>
+															</tr>
+														</c:if>
+														<!-- Motherboard Row -->
+														<c:if test="${build.motherboard != null}">
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">Motherboard</div>
+																	</div>
+																	<div class="row">
+																	    <div class="col-md-12">
+																		    <div class="row">
+																				<div class="col-md-10"><strong>${build.motherboard.name}</strong></div>
+																			    <div class="col-md-2">$${build.motherboard.price}</div>
+																		    </div>
+																	    </div>
+																	</div>
+																</td>
+															</tr>
+														</c:if>
+														<!-- GPU Row -->
+														<c:if test="${build.gpu != null}">
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">GPU</div>
+																	</div>
+																	<div class="row">
+																	    <div class="col-md-12">
+																		    <div class="row">
+																				<div class="col-md-10"><strong>${build.gpu.name}</strong></div>
+																			    <div class="col-md-2">$${build.gpu.price}</div>
+																		    </div>
+																	    </div>
+																	</div>
+																</td>
+															</tr>
+														</c:if>
+														<!-- RAM Row -->
+														<c:if test="${build.ramList.size()>0}">				
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">RAM</div>
+																	</div>
+																	<c:forEach items="${build.ramList}" var="ram">	
+																		<div class="row">
+																		    <div class="col-md-12">
+																			    <div class="row">
+																					<div class="col-md-10"><strong>${ram.name}</strong></div>
+																				    <div class="col-md-2">$${ram.price}</div>
+																			    </div>
+																		    </div>
+																		</div>
+																	</c:forEach>
+																</td>
+															</tr>
+														</c:if>
+														<!-- Storage Row -->
+														<c:if test="${build.storageList.size()>0}">				
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">Storage</div>
+																	</div>
+																	<c:forEach items="${build.storageList}" var="storage">	
+																		<div class="row">
+																		    <div class="col-md-12">
+																			    <div class="row">
+																					<div class="col-md-10"><strong>${storage.name}</strong></div>
+																				    <div class="col-md-2">$${storage.price}</div>
+																			    </div>
+																		    </div>
+																		</div>
+																	</c:forEach>
+																</td>
+															</tr>
+														</c:if>
+														<!-- PSU Row -->
+														<c:if test="${build.psu != null}">
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">PSU</div>
+																	</div>
+																	<div class="row">
+																	    <div class="col-md-12">
+																		    <div class="row">
+																				<div class="col-md-10"><strong>${build.psu.name}</strong></div>
+																			    <div class="col-md-2">$${build.psu.price}</div>
+																		    </div>
+																	    </div>
+																	</div>
+																</td>
+															</tr>
+														</c:if>
+														<!-- Cooler Row -->
+														<c:if test="${build.cooler != null}">
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">Cooler</div>
+																	</div>
+																	<div class="row">
+																	    <div class="col-md-12">
+																		    <div class="row">
+																				<div class="col-md-10"><strong>${build.cooler.name}</strong></div>
+																			    <div class="col-md-2">$${build.cooler.price}</div>
+																		    </div>
+																	    </div>
+																	</div>
+																</td>
+															</tr>
+														</c:if>
+														<!-- Case Row -->
+														<c:if test="${build.computerCase != null}">
+															<tr>
+																<td>
+																	<div class="row">
+																		<div class="col-md-12">Case</div>
+																	</div>
+																	<div class="row">
+																	    <div class="col-md-12">
+																		    <div class="row">
+																				<div class="col-md-10"><strong>${build.computerCase.name}</strong></div>
+																			    <div class="col-md-2">$${build.computerCase.price}</div>
+																		    </div>
+																	    </div>
+																	</div>
+																</td>
+															</tr>
+														</c:if>
+														<!-- Cost Row -->
+														<c:if test="${build.cost > 0}">
+															<tfoot>
+																<tr>
+																	<td>
+																		<div class="row">
+																			<div class="col-md-10"><strong>Total cost</strong></div>
+																			<div class="col-md-2">$${build.cost}</div>
+																		</div>
+																	</td>
+																</tr>
+															</tfoot>
+														</c:if>
+														
+													</table>
+													<div class="row">
+														<div class="col-md-3 col-md-offset-6">
+															<a href = "${contextPath}/mybuild/set/${build.id}" class="btn btn-primary">
+																Set current build
+															</a>
+														</div>
+														
+														<div class="col-md-3">
+															<a href = "${contextPath}/profile/remove/build/${build.id}" class="btn btn-danger">
+									 							Delete this build
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								 </div> 																					
+							</div>
+						</div>
 					</div>
 					<div id="posts" class="tab-pane fade">
 						<div class="page-header">
@@ -125,7 +457,7 @@
 						    <div class="row">
 								<div class="col-md-1" align="center">	
 									<a href = "${contextPath}/post/${post.id}" class="btn btn-default btn-lg">
-										<span class="glyphicon glyphicon-hdd"></span> 
+										<span class="${post.buildId > 0 ? 'glyphicon glyphicon-hdd' : 'glyphicon glyphicon-list-alt'}"></span> 
 									</a>
 								</div>
 								<div class="col-md-11 well well-sm">   

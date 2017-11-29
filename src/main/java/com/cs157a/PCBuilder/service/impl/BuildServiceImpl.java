@@ -84,6 +84,8 @@ public class BuildServiceImpl implements BuildService{
 					}, 
 					keyHolder);
 			int buildId = (int) (long) keyHolder.getKey();
+			String sql2 = "UPDATE build SET name = ? WHERE id = ?";		
+			jdbcTemplate.update(sql2, new Object[] { "Build #"+buildId, buildId });
 			userService.setCurrentBuild(buildId);
 		}
 	}

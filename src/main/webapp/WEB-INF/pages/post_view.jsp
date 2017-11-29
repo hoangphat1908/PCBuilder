@@ -16,7 +16,7 @@
 		<c:if test="${post != null}">
 			<div class="row">
 				<c:if test="${build != null}">
-					<div class="col-md-4 sidenav">
+					<div class="col-md-4">
 						<h4>${build.name}</h4>
 						<hr>
 						<table class="table table-striped">
@@ -180,20 +180,18 @@
 							</c:if>
 							<!-- Cost Row -->
 							<c:if test="${build.cost > 0}">
-							<tfoot>
-								<tr>
-									<td>
-										<div class="row">
-											<div class="col-md-10"><strong>Total cost</strong></div>
-											<div class="col-md-2">$${build.cost}</div>
-										</div>
-									</td>
-								</tr>
-							</tfoot>
-						</c:if>
-						
+								<tfoot>
+									<tr>
+										<td>
+											<div class="row">
+												<div class="col-md-10"><strong>Total cost</strong></div>
+												<div class="col-md-2">$${build.cost}</div>
+											</div>
+										</td>
+									</tr>
+								</tfoot>
+							</c:if>
 						</table>
-	
 						<br>
 					</div>
 				</c:if>

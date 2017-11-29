@@ -4,15 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>PCBuilder</title>
-<link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>PCBuilder</title>
+	<link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
 		<h3>User List</h3>
-	    <table border="1" width="70%" class="table table-striped">
+	    <table class="table table-striped">
 	    	<thead>
 	   		<tr>
 	   			<td>Username</td>
