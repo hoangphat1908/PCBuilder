@@ -27,7 +27,15 @@ public class BuildController {
 	@RequestMapping("/build/{id}")
     public String viewBuild(@PathVariable("id") int id, Model model) {
 		Build build = buildService.get(id);
-        model.addAttribute("build",build);
+		if (!build.isPublic()) {
+			User user = userService.getCurrentUser();
+			if (user != null && user.getId() == build.getUser().getId()) {
+				model.addAttribute("build",build);
+			}
+		}
+		else {
+			model.addAttribute("build",build);
+		}
         return "build_view";
     }
 	

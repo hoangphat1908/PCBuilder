@@ -6,6 +6,7 @@ public class Build {
 	private int id;
 	private User user;
 	private String name;
+	private boolean isPublic;
 	private CPU cpu;
 	private Motherboard motherboard;
 	private GPU gpu;
@@ -32,6 +33,12 @@ public class Build {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public boolean isPublic() {
+		return isPublic;
+	}
+	public void setPublic(boolean isPublic) {
+		this.isPublic = isPublic;
 	}
 	public CPU getCpu() {
 		return cpu;

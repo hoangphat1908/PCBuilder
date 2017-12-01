@@ -162,6 +162,7 @@ CREATE TABLE `build` (
   `id` INT AUTO_INCREMENT NOT NULL,
   `user_id` INT NOT NULL,
   `name` TEXT NOT NULL,
+  `public` BOOLEAN NOT NULL DEFAULT 0,
   `cpu_id` INT,
   `motherboard_id` INT,
   `gpu_id` INT,

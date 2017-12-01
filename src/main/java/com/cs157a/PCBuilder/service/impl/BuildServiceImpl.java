@@ -33,6 +33,7 @@ import com.cs157a.PCBuilder.service.CaseService;
 import com.cs157a.PCBuilder.service.GPUService;
 import com.cs157a.PCBuilder.service.MotherboardService;
 import com.cs157a.PCBuilder.service.PSUService;
+import com.cs157a.PCBuilder.service.PostService;
 import com.cs157a.PCBuilder.service.RAMService;
 import com.cs157a.PCBuilder.service.StorageService;
 import com.cs157a.PCBuilder.service.UserService;
@@ -49,6 +50,8 @@ public class BuildServiceImpl implements BuildService{
 	
 	@Autowired
 	UserService userService;
+	@Autowired
+	PostService postService;
 	@Autowired
 	CPUService cpuService;
 	@Autowired
@@ -189,6 +192,8 @@ public class BuildServiceImpl implements BuildService{
 	
 	public void delete(int buildId) {
 		User user = userService.getCurrentUser();
+		
+		postService.deleteBuild(buildId);
 		if (user != null) {
 			String sql1 = "DELETE FROM build_ram WHERE build_id = ?";		
 			jdbcTemplate.update(sql1, new Object[] { buildId });
@@ -203,6 +208,7 @@ public class BuildServiceImpl implements BuildService{
 			
 			String sql4 = "DELETE FROM build WHERE id = ?";		
 			jdbcTemplate.update(sql4, new Object[] { buildId });
+			
 		}
 	}
 
@@ -234,6 +240,7 @@ public class BuildServiceImpl implements BuildService{
 			build.setId(result.getInt("id"));
 			build.setUser(userService.get(result.getInt("user_id")));
 			build.setName(result.getString("name"));
+			build.setPublic(result.getBoolean("public"));
 			build.setCpu(cpuService.get(result.getInt("cpu_id")));
 			build.setMotherboard(motherboardService.get(result.getInt("motherboard_id")));
 			build.setGpu(gpuService.get(result.getInt("gpu_id")));

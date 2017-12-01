@@ -66,6 +66,11 @@ public class PostServiceImpl implements PostService{
 			return postList.get(0);
 		return null;
 	}
+	@Override
+	public void deleteBuild(int buildId) {
+		String sql = "UPDATE post SET build_id = NULL WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { buildId });
+	}
 	public List<Post> selectAll() {
 		String sql = "SELECT * FROM post";		
 		List<Post> postList = jdbcTemplate.query(sql, new PostMapper());

@@ -12,25 +12,31 @@
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
 		<h3>Post List</h3>
-	    <table border="1" width="70%" class="table table-striped">
-	    	<thead>
-	   		<tr>
-	   			<td>ID</td>
-	   			<td>Username</td>
-	   			<td>Title</td>
-	   			<td>Body</td>
-	   		</tr>
-	   		</thead>
-	   		<c:forEach items="${postList}" var="post">
-	   		<tr>
-	   			<td><a href = "${contextPath}/post/${post.id}">${post.id}</a></td>
-	   			<td>${post.user.username}</td>
-	   			<td>${post.title}</td>
-	   			<td>${post.body}</td>
-	   		</tr>
-	   		</c:forEach>
-	   </table>
-	   <a class="btn btn-lg btn-primary btn-block" href="${contextPath}/post/new">Create new post</a>
+		<c:forEach items="${postList}" var="post">
+			<div class="row">
+				<div class="col-md-1" align="center">	
+					<a href = "${contextPath}/post/${post.id}" class="btn btn-default btn-lg">
+						<span class="${post.buildId > 0 ? 'glyphicon glyphicon-hdd' : 'glyphicon glyphicon-list-alt'}"></span> 
+					</a>
+				</div>
+				<div class="col-md-11 well well-sm">   
+					<div class="row">
+						<div class="col-md-12">       
+							<h4><strong><a href = "${contextPath}/post/${post.id}">${post.title}</a></strong></h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>
+								by <a href="#">${post.user.username}</a> |
+								<a href = "${contextPath}/post/${post.id}">${post.commentList.size() > 0 ? post.commentList.size() : 0} comments</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+		<a class="btn btn-lg btn-primary btn-block" href="${contextPath}/post/new">Create new post</a>
    </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>

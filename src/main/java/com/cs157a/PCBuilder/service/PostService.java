@@ -10,6 +10,7 @@ public interface PostService {
 	public void update(Post post);
 	public Post getSimple(int postId);
 	public Post get(int postId);
+	public void deleteBuild(int buildId);
 	public List<Post> selectAll();
 	public List<Post> selectAll(User user);
 }
