@@ -87,6 +87,9 @@ public class UserServiceImpl implements UserService{
 		User user = getCurrentUser();
 		if (user != null) {
 			Build build = buildService.get(user.getCurrentBuildId());
+			if (build == null)
+				build = buildService.get(buildService.newBuild());
+			
 			if (component instanceof CPU) {
 				buildService.chooseCPU(build, (CPU)component);
 			}

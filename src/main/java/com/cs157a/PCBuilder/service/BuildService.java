@@ -14,7 +14,7 @@ import com.cs157a.PCBuilder.model.Storage;
 import com.cs157a.PCBuilder.model.User;
 
 public interface BuildService {
-	public void newBuild();
+	public int newBuild();
 	public void editName(Build build, String name);
 	
 	public void chooseCPU(Build build, CPU cpu);

@@ -69,7 +69,7 @@ public class BuildServiceImpl implements BuildService{
 	@Autowired
 	CaseService caseService;
 	
-	public void newBuild() {
+	public int newBuild() {
 		User user = userService.getCurrentUser();
 		if (user != null) {
 			final String sql1 = "INSERT INTO build (user_id, name)" + " VALUES (?, ?)";		
@@ -90,7 +90,9 @@ public class BuildServiceImpl implements BuildService{
 			String sql2 = "UPDATE build SET name = ? WHERE id = ?";		
 			jdbcTemplate.update(sql2, new Object[] { "Build #"+buildId, buildId });
 			userService.setCurrentBuild(buildId);
+			return buildId;
 		}
+		return 0;
 	}
 	
 	public void editName(Build build, String name) {
