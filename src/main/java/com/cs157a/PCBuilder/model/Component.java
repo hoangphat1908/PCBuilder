@@ -5,6 +5,7 @@ public class Component {
 	protected String manufacturer;
 	protected String model;
 	protected double price;
+	protected String imagePath;
 	public int getId() {
 		return id;
 	}
@@ -31,6 +32,12 @@ public class Component {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	@Override
 	public String toString() {

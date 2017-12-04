@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>RPM</td>
@@ -26,6 +27,9 @@
 	   		<c:forEach items="${coolerList}" var="cooler">
 	   		<tr>
 	   			<td>${cooler.id}</td>
+	   			<td>
+					<img src="${cooler.imagePath}" title="${cooler.name}" height="75" width="75">
+				</td>
 	   			<td>${cooler.manufacturer}</td>
 	   			<td>${cooler.model}</td>
 	   			<td>${cooler.noise}</td>

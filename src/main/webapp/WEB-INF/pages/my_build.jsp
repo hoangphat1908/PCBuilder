@@ -72,7 +72,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.cpu != null}">
-											<div class="col-md-8"><strong>${build.cpu.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.cpu.imagePath}" title="${build.cpu.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.cpu.name}</strong></div>
 										    <div class="col-md-3">$${build.cpu.price}</div>
 										    <div class="col-md-1" align="right">
 											    <form action="${contextPath}/mybuild/remove/cpu" method="POST">
@@ -102,7 +105,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.motherboard != null}">
-											<div class="col-md-8"><strong>${build.motherboard.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.motherboard.imagePath}" title="${build.motherboard.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.motherboard.name}</strong></div>
 										    <div class="col-md-3">$${build.motherboard.price}</div>
 										    <div class="col-md-1" align="right">
 											    <form action="${contextPath}/mybuild/remove/motherboard" method="POST">
@@ -132,7 +138,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.gpu != null}">
-											<div class="col-md-8"><strong>${build.gpu.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.gpu.imagePath}" title="${build.gpu.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.gpu.name}</strong></div>
 										    <div class="col-md-3">$${build.gpu.price}</div>
 										    <div class="col-md-1" align="right">
 											    <form action="${contextPath}/mybuild/remove/gpu" method="POST">
@@ -162,7 +171,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.psu != null}">
-											<div class="col-md-8"><strong>${build.psu.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.psu.imagePath}" title="${build.psu.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.psu.name}</strong></div>
 										    <div class="col-md-3">$${build.psu.price}</div>
 										    <div class="col-md-1" align="right">
 											    <form action="${contextPath}/mybuild/remove/psu" method="POST">
@@ -192,7 +204,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.cooler != null}">
-											<div class="col-md-8"><strong>${build.cooler.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.cooler.imagePath}" title="${build.cooler.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.cooler.name}</strong></div>
 										    <div class="col-md-3">$${build.cooler.price}</div>
 										    <div class="col-md-1" align="right">
 											    <form action="${contextPath}/mybuild/remove/cooler" method="POST">
@@ -222,7 +237,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.computerCase != null}">
-											<div class="col-md-8"><strong>${build.computerCase.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.computerCase.imagePath}" title="${build.computerCase.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.computerCase.name}</strong></div>
 										    <div class="col-md-3">$${build.computerCase.price}</div>
 										    <div class="col-md-1" align="right">
 											    <form action="${contextPath}/mybuild/remove/case" method="POST">
@@ -254,7 +272,10 @@
 									<c:when test="${build.ramList.size() > 0}">
 										<c:forEach items="${build.ramList}" var="ram" varStatus="loop">
 											<div class="row">
-												<div class="col-md-8"><strong>${ram.name}</strong></div>
+												<div class="col-md-2">
+													<img src="${ram.imagePath}" title="${ram.name}" height="50" width="50">
+												</div>
+												<div class="col-md-6"><strong>${ram.name}</strong></div>
 											    <div class="col-md-3">$${ram.price}</div>
 											    <div class="col-md-1" align="right">											    
 												    <form action="${contextPath}/mybuild/remove/ram/${loop.index}" method="POST">
@@ -294,7 +315,10 @@
 									<c:when test="${build.storageList.size() > 0}">
 										<c:forEach items="${build.storageList}" var="storage" varStatus="loop">
 											<div class="row">
-												<div class="col-md-8"><strong>${storage.name}</strong></div>
+												<div class="col-md-2">
+													<img src="${storage.imagePath}" title="${storage.name}" height="50" width="50">
+												</div>
+												<div class="col-md-6"><strong>${storage.name}</strong></div>
 											    <div class="col-md-3">$${storage.price}</div>
 											    <div class="col-md-1" align="right">											    
 												    <form action="${contextPath}/mybuild/remove/storage/${loop.index}" method="POST">

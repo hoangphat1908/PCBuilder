@@ -41,6 +41,7 @@ class CPUMapper implements RowMapper<CPU> {
 		cpu.setManufacturer(result.getString("manufacturer"));
 		cpu.setModel(result.getString("model"));
 		cpu.setPrice(result.getDouble("price"));
+		cpu.setImagePath("resources/img/cpu/cpu_"+result.getInt("id")+".jpg");
 		cpu.setCores(result.getInt("cores"));
 		cpu.setClockSpeed(result.getDouble("clock_speed"));
 		cpu.setTDP(result.getInt("TDP"));

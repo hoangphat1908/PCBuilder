@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>Series</td>
@@ -28,6 +29,9 @@
 	   		<c:forEach items="${gpuList}" var="gpu">
 	   		<tr>
 	   			<td>${gpu.id}</td>
+	   			<td>
+					<img src="${gpu.imagePath}" title="${gpu.name}" height="75" width="75">
+				</td>
 	   			<td>${gpu.manufacturer}</td>
 	   			<td>${gpu.model}</td>
 	   			<td>${gpu.series}</td>

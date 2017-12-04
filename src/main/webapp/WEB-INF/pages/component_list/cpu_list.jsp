@@ -17,6 +17,7 @@
 			<thead>
 				<tr>
 					<td>ID</td>
+					<td>Image</td>
 					<td>Manufacturer</td>
 					<td>Model</td>
 					<td>Cores</td>
@@ -28,6 +29,9 @@
 			<c:forEach items="${cpuList}" var="cpu">
 				<tr>
 					<td>${cpu.id}</td>
+					<td>
+						<img src="${cpu.imagePath}" title="${cpu.name}" height="75" width="75">
+					</td>
 					<td>${cpu.manufacturer}</td>
 					<td>${cpu.model}</td>
 					<td>${cpu.cores}</td>

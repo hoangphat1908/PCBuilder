@@ -11,23 +11,13 @@
 <body>
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
-		<h3>User List</h3>
-	    <table class="table table-striped">
-	    	<thead>
-	   		<tr>
-	   			<td>Username</td>
-	   			<td>Email</td>
-	   			<td>Password</td>
-	   		</tr>
-	   		</thead>
-	   		<c:forEach items="${userList}" var="user">
-	   		<tr>
-	   			<td>${user.username}</td>
-	   			<td>${user.email}</td>
-	   			<td>${user.password}</td>
-	   		</tr>
-	   		</c:forEach>
-	   </table>
+		<div class="jumbotron">
+			<h1>Welcome to PCBuilder</h1>
+			<p>Need help on building your next PC? Try our PC Build feature or join our community of PC enthusiasts</p>
+			<c:if test="${pageContext.request.userPrincipal.name == null}">
+				<p><a class="btn btn-primary btn-lg" href="${contextPath}/register" role="button">Sign up now!</a></p>
+			</c:if>
+		</div>
    </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>

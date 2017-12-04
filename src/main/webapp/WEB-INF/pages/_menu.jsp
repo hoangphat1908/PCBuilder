@@ -23,6 +23,8 @@
 				</ul>
 			</li>
 			<li><a href = "${contextPath}/post">View Posts</a></li>
+			<li><a href = "${contextPath}/build">View Builds</a></li>
+			<!-- 
 			<li>
 				<form class="navbar-form navbar-left" role="search">
 					<div class="form-group">
@@ -31,6 +33,7 @@
 					<button type="submit" class="btn btn-default">Search</button>
 				</form>
 			</li>
+			-->
 		</ul>
 		<ul class = "nav navbar-nav navbar-right">
 			

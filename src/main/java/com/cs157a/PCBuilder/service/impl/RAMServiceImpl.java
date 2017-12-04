@@ -45,16 +45,17 @@ public class RAMServiceImpl implements RAMService{
 }
 class RAMMapper implements RowMapper<RAM> {
 	public RAM mapRow(ResultSet result, int rowNum) throws SQLException {
-		RAM cpu = new RAM();
-		cpu.setId(result.getInt("id"));
-		cpu.setManufacturer(result.getString("manufacturer"));
-		cpu.setModel(result.getString("model"));
-		cpu.setPrice(result.getDouble("price"));
-		cpu.setSize(result.getInt("size"));
-		cpu.setModule(result.getString("module"));
-		cpu.setType(result.getString("type"));
-		cpu.setSpeed(result.getString("speed"));
+		RAM ram = new RAM();
+		ram.setId(result.getInt("id"));
+		ram.setManufacturer(result.getString("manufacturer"));
+		ram.setModel(result.getString("model"));
+		ram.setPrice(result.getDouble("price"));
+		ram.setImagePath("resources/img/ram/ram_"+result.getInt("id")+".jpg");
+		ram.setSize(result.getInt("size"));
+		ram.setModule(result.getString("module"));
+		ram.setType(result.getString("type"));
+		ram.setSpeed(result.getString("speed"));
 		
-		return cpu;
+		return ram;
 	}
 }

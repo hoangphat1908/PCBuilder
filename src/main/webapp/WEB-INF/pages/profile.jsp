@@ -64,7 +64,7 @@
 											<tr>
 												<td>
 													<div class="row">
-														<div class="col-md-12" align="center"><a href = "${contextPath}/mybuild"><h4><strong>${currentBuild.name}</strong></h4></a></div>
+														<div class="col-md-12" align="center"><h4><strong><a href = "${contextPath}/mybuild">${currentBuild.name}</a></strong></h4></div>
 													</div>
 												</td>
 											</tr>
@@ -428,11 +428,27 @@
 														
 													</table>
 													<div class="row">
-														<div class="col-md-3 col-md-offset-6">
+														<div class="col-md-3 col-md-offset-3">
+															<c:choose>
+																<c:when test="${build.isPublic()}">
+																	<a href = "${contextPath}/profile/set/build/${build.id}/private" class="btn btn-default">
+																		Set private build
+																	</a>
+																</c:when>
+																<c:otherwise>
+																	<a href = "${contextPath}/profile/set/build/${build.id}/public" class="btn btn-success">
+																		Set public build
+																	</a>
+																</c:otherwise>
+															</c:choose>
+															
+														</div>
+														
+														<div class="col-md-3">
 															<a href = "${contextPath}/mybuild/set/${build.id}" class="btn btn-primary">
 																Set current build
 															</a>
-														</div>
+														</div>												
 														
 														<div class="col-md-3">
 															<a href = "${contextPath}/profile/remove/build/${build.id}" class="btn btn-danger">

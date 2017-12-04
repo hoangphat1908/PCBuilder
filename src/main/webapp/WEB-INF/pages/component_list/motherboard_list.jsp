@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>Form factor</td>
@@ -28,6 +29,9 @@
 	   		<c:forEach items="${motherboardList}" var="motherboard">
 	   		<tr>
 	   			<td>${motherboard.id}</td>
+	   			<td>
+					<img src="${motherboard.imagePath}" title="${motherboard.name}" height="75" width="75">
+				</td>
 	   			<td>${motherboard.manufacturer}</td>
 	   			<td>${motherboard.model}</td>
 	   			<td>${motherboard.formFactor}</td>

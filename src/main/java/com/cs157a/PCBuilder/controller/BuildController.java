@@ -1,6 +1,8 @@
 package com.cs157a.PCBuilder.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,13 @@ public class BuildController {
 	@Autowired
 	private  BuildService buildService;
 
+	@RequestMapping("/build")
+    public String selectAll(Model model) {
+		List<Build> buildList = buildService.selectAll();
+		model.addAttribute("buildList",buildList);
+        return "build_list";
+    }
+	
 	@RequestMapping("/build/{id}")
     public String viewBuild(@PathVariable("id") int id, Model model) {
 		Build build = buildService.get(id);

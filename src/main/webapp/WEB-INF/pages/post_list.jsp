@@ -11,7 +11,17 @@
 <body>
 	<jsp:include page="_menu.jsp"/>
 	<div class="container">
-		<h3>Post List</h3>
+		<div class="row">
+			<div class="col-md-3">
+				<h3>Post List</h3>
+			</div>
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+			    <div class="col-md-2 col-md-offset-7">
+					<a class="btn btn-lg btn-primary" href="${contextPath}/post/new">Create a new post</a>
+	   			</div>
+	   		</c:if>
+		</div>
+		
 		<c:forEach items="${postList}" var="post">
 			<div class="row">
 				<div class="col-md-1" align="center">	
@@ -36,7 +46,6 @@
 				</div>
 			</div>
 		</c:forEach>
-		<a class="btn btn-lg btn-primary btn-block" href="${contextPath}/post/new">Create new post</a>
    </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>

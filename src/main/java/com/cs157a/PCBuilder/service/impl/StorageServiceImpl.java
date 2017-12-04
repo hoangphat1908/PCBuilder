@@ -51,12 +51,12 @@ class StorageMapper implements RowMapper<Storage> {
 		storage.setManufacturer(result.getString("manufacturer"));
 		storage.setModel(result.getString("model"));
 		storage.setPrice(result.getDouble("price"));
+		storage.setImagePath("resources/img/storage/storage_"+result.getInt("id")+".jpg");
 		storage.setType(result.getString("type"));
 		storage.setForm(result.getString("form"));
 		storage.setSeries(result.getString("series"));
 		storage.setCapacity(result.getString("capacity"));
 		storage.setCache(result.getString("cache")!= null? result.getString("cache") : "N/A");
-		
 		return storage;
 	}
 }

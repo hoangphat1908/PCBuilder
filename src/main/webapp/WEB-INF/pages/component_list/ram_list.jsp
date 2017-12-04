@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>Size</td>
@@ -28,6 +29,9 @@
 	   		<c:forEach items="${ramList}" var="ram">
 	   		<tr>
 	   			<td>${ram.id}</td>
+	   			<td>
+					<img src="${ram.imagePath}" title="${ram.name}" height="75" width="75">
+				</td>
 	   			<td>${ram.manufacturer}</td>
 	   			<td>${ram.model}</td>
 	   			<td>${ram.size}GB</td>

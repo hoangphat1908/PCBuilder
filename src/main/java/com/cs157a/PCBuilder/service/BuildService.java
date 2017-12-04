@@ -16,6 +16,7 @@ import com.cs157a.PCBuilder.model.User;
 public interface BuildService {
 	public int newBuild();
 	public void editName(Build build, String name);
+	public void setPublic(int buildId, boolean pub);
 	
 	public void chooseCPU(Build build, CPU cpu);
 	public void removeCPU(Build build);

@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>Type</td>
@@ -29,6 +30,9 @@
 	   		<c:forEach items="${storageList}" var="storage">
 	   		<tr>
 	   			<td>${storage.id}</td>
+	   			<td>
+					<img src="${storage.imagePath}" title="${storage.name}" height="75" width="75">
+				</td>
 	   			<td>${storage.manufacturer}</td>
 	   			<td>${storage.model}</td>
 	   			<td>${storage.type}GB</td>

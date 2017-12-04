@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>Type</td>
@@ -26,6 +27,9 @@
 	   		<c:forEach items="${caseList}" var="computerCase">
 	   		<tr>
 	   			<td>${computerCase.id}</td>
+	   			<td>
+					<img src="${computerCase.imagePath}" title="${computerCase.name}" height="75" width="75">
+				</td>
 	   			<td>${computerCase.manufacturer}</td>
 	   			<td>${computerCase.model}</td>
 	   			<td>${computerCase.type}</td>

@@ -100,6 +100,12 @@ public class BuildServiceImpl implements BuildService{
 		jdbcTemplate.update(sql, new Object[] { name, build.getId() });
 	}
 	
+	@Override
+	public void setPublic(int buildId, boolean pub) {
+		String sql = "UPDATE build SET public = ? WHERE id = ?";		
+		jdbcTemplate.update(sql, new Object[] { pub, buildId });
+	}
+	
 	public void chooseCPU(Build build, CPU cpu) {
 		String sql = "UPDATE build SET cpu_id = ? WHERE id = ?";		
 		jdbcTemplate.update(sql, new Object[] { cpu.getId(), build.getId() });
@@ -215,7 +221,10 @@ public class BuildServiceImpl implements BuildService{
 	}
 
 	public List<Build> selectAll() {
-		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM build WHERE public = ?";		
+		List<Build> buildList = jdbcTemplate.query(sql, new BuildMapper(), new Object[] {1});
+		if (buildList.size() > 0)
+			return buildList;
 		return null;
 	}
 	

@@ -95,4 +95,14 @@ public class UserController {
     	buildService.delete(id);
         return "redirect:/profile";
     }
+    @RequestMapping(value = {"/profile/set/build/{id}/public"}, method = RequestMethod.GET)
+    public String setPublic(@PathVariable("id") int id, Model model) {
+    	buildService.setPublic(id, true);
+        return "redirect:/profile";
+    }
+    @RequestMapping(value = {"/profile/set/build/{id}/private"}, method = RequestMethod.GET)
+    public String setPrivate(@PathVariable("id") int id, Model model) {
+    	buildService.setPublic(id, false);
+        return "redirect:/profile";
+    }
 }

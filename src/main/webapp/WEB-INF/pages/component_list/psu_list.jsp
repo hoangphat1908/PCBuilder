@@ -16,6 +16,7 @@
 	    	<thead>
 	   		<tr>
 	   			<td>ID</td>
+	   			<td>Image</td>
 	   			<td>Manufacturer</td>
 	   			<td>Model</td>
 	   			<td>Series</td>
@@ -29,6 +30,9 @@
 	   		<c:forEach items="${psuList}" var="psu">
 	   		<tr>
 	   			<td>${psu.id}</td>
+	   			<td>
+					<img src="${psu.imagePath}" title="${psu.name}" height="75" width="75">
+				</td>
 	   			<td>${psu.manufacturer}</td>
 	   			<td>${psu.model}</td>
 	   			<td>${psu.series}</td>
