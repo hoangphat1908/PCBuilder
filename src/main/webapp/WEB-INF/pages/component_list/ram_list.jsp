@@ -32,16 +32,16 @@
 	   			<td>
 					<img src="${ram.imagePath}" title="${ram.name}" height="75" width="75">
 				</td>
-	   			<td>${ram.manufacturer}</td>
-	   			<td>${ram.model}</td>
+	   			<td><strong>${ram.manufacturer}</strong></td>
+				<td><strong>${ram.model}</strong></td>
 	   			<td>${ram.size}GB</td>
 	   			<td>${ram.module}</td>
 	   			<td>${ram.type}</td>
 	   			<td>${ram.speed}</td>
-	   			<td>$${ram.price}</td>
+	   			<td><strong>$${ram.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/ram/${ram.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

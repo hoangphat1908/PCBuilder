@@ -39,8 +39,11 @@
 										</div>
 										<div class="row">
 										    <div class="col-md-12">
-											    <div class="row">											
-													<div class="col-md-10"><strong>${build.cpu.name}</strong></div>
+											    <div class="row">		
+											    	<div class="col-md-2">
+														<img src="${build.cpu.imagePath}" title="${build.cpu.name}" height="50" width="50">
+													</div>									
+													<div class="col-md-8"><strong>${build.cpu.name}</strong></div>
 												    <div class="col-md-2">$${build.cpu.price}</div>								    	
 											    </div>
 										    </div>
@@ -58,7 +61,10 @@
 										<div class="row">
 										    <div class="col-md-12">
 											    <div class="row">
-													<div class="col-md-10"><strong>${build.motherboard.name}</strong></div>
+													<div class="col-md-2">
+														<img src="${build.motherboard.imagePath}" title="${build.motherboard.name}" height="50" width="50">
+													</div>									
+													<div class="col-md-8"><strong>${build.motherboard.name}</strong></div>
 												    <div class="col-md-2">$${build.motherboard.price}</div>
 											    </div>
 										    </div>
@@ -76,7 +82,10 @@
 										<div class="row">
 										    <div class="col-md-12">
 											    <div class="row">
-													<div class="col-md-10"><strong>${build.gpu.name}</strong></div>
+													<div class="col-md-2">
+														<img src="${build.gpu.imagePath}" title="${build.gpu.name}" height="50" width="50">
+													</div>									
+													<div class="col-md-8"><strong>${build.gpu.name}</strong></div>
 												    <div class="col-md-2">$${build.gpu.price}</div>
 											    </div>
 										    </div>
@@ -95,7 +104,10 @@
 											<div class="row">
 											    <div class="col-md-12">
 												    <div class="row">
-														<div class="col-md-10"><strong>${ram.name}</strong></div>
+														<div class="col-md-2">
+															<img src="${ram.imagePath}" title="${ram.name}" height="50" width="50">
+														</div>									
+														<div class="col-md-8"><strong>${ram.name}</strong></div>
 													    <div class="col-md-2">$${ram.price}</div>
 												    </div>
 											    </div>
@@ -114,8 +126,11 @@
 										<c:forEach items="${build.storageList}" var="storage">	
 											<div class="row">
 											    <div class="col-md-12">
-												    <div class="row">
-														<div class="col-md-10"><strong>${storage.name}</strong></div>
+													    <div class="row">
+															<div class="col-md-2">
+															<img src="${storage.imagePath}" title="${storage.name}" height="50" width="50">
+														</div>									
+														<div class="col-md-8"><strong>${storage.name}</strong></div>
 													    <div class="col-md-2">$${storage.price}</div>
 												    </div>
 											    </div>
@@ -134,7 +149,10 @@
 										<div class="row">
 										    <div class="col-md-12">
 											    <div class="row">
-													<div class="col-md-10"><strong>${build.psu.name}</strong></div>
+													<div class="col-md-2">
+														<img src="${build.psu.imagePath}" title="${build.psu.name}" height="50" width="50">
+													</div>									
+													<div class="col-md-8"><strong>${build.psu.name}</strong></div>
 												    <div class="col-md-2">$${build.psu.price}</div>
 											    </div>
 										    </div>
@@ -152,7 +170,10 @@
 										<div class="row">
 										    <div class="col-md-12">
 											    <div class="row">
-													<div class="col-md-10"><strong>${build.cooler.name}</strong></div>
+													<div class="col-md-2">
+														<img src="${build.cooler.imagePath}" title="${build.cooler.name}" height="50" width="50">
+													</div>									
+													<div class="col-md-8"><strong>${build.cooler.name}</strong></div>
 												    <div class="col-md-2">$${build.cooler.price}</div>
 											    </div>
 										    </div>
@@ -170,7 +191,10 @@
 										<div class="row">
 										    <div class="col-md-12">
 											    <div class="row">
-													<div class="col-md-10"><strong>${build.computerCase.name}</strong></div>
+													<div class="col-md-2">
+														<img src="${build.computerCase.imagePath}" title="${build.computerCase.name}" height="50" width="50">
+													</div>									
+													<div class="col-md-8"><strong>${build.computerCase.name}</strong></div>
 												    <div class="col-md-2">$${build.computerCase.price}</div>
 											    </div>
 										    </div>
@@ -219,7 +243,7 @@
 						<c:forEach items="${post.commentList}" var="comment">
 							<div class="row">
 								<div class="col-sm-2 text-center">
-									<img src="https://static.dreamstime.com/t/male-avatar-profile-picture-silhouette-34443055.jpg" class="img-circle" height="65" width="65" alt="Avatar Pic">
+									<img src="/resources/img/user/anonymous.jpg" class="img-circle" height="65" width="65" alt="Avatar Pic">
 								</div>
 								<div class="col-sm-10">
 									<h4>${comment.user.username}</h4>

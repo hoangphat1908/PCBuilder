@@ -6,6 +6,10 @@ public class Storage extends Component{
 	private String series;
 	private String capacity;
 	private String cache;
+	@Override
+	public String getName() {
+		return manufacturer+" - "+series+" "+capacity+" "+form+" "+type;
+	}
 	public String getType() {
 		return type;
 	}

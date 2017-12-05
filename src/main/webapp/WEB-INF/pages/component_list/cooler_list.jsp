@@ -30,14 +30,14 @@
 	   			<td>
 					<img src="${cooler.imagePath}" title="${cooler.name}" height="75" width="75">
 				</td>
-	   			<td>${cooler.manufacturer}</td>
-	   			<td>${cooler.model}</td>
+	   			<td><strong>${cooler.manufacturer}</strong></td>
+				<td><strong>${cooler.model}</strong></td>
 	   			<td>${cooler.noise}</td>
 	   			<td>${cooler.rpm}</td>
-	   			<td>$${cooler.price}</td>
+	   			<td><strong>$${cooler.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/cooler/${cooler.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

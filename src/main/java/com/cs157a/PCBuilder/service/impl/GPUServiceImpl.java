@@ -42,7 +42,7 @@ class GPUMapper implements RowMapper<GPU> {
 		gpu.setManufacturer(result.getString("manufacturer"));
 		gpu.setModel(result.getString("model"));
 		gpu.setPrice(result.getDouble("price"));
-		gpu.setImagePath("resources/img/gpu/gpu_"+result.getInt("id")+".jpg");
+		gpu.setImagePath("/resources/img/component/gpu/gpu_"+result.getInt("id")+".jpg");
 		gpu.setSeries(result.getString("series"));
 		gpu.setChipset(result.getString("chipset"));
 		gpu.setMemory(result.getInt("memory"));

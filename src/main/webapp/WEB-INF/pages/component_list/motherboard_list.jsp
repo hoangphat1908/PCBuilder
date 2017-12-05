@@ -32,16 +32,16 @@
 	   			<td>
 					<img src="${motherboard.imagePath}" title="${motherboard.name}" height="75" width="75">
 				</td>
-	   			<td>${motherboard.manufacturer}</td>
-	   			<td>${motherboard.model}</td>
+	   			<td><strong>${motherboard.manufacturer}</strong></td>
+				<td><strong>${motherboard.model}</strong></td>
 	   			<td>${motherboard.formFactor}</td>
 	   			<td>${motherboard.socket}</td>
 	   			<td>${motherboard.ramSlots}</td>
 	   			<td>${motherboard.ramMax}GB</td>
-	   			<td>$${motherboard.price}</td>
+	   			<td><strong>$${motherboard.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/motherboard/${motherboard.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

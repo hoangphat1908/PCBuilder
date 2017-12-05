@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Build View</title>
 <link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="_menu.jsp"/>
@@ -43,7 +44,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.cpu != null}">
-											<div class="col-md-8"><strong>${build.cpu.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.cpu.imagePath}" title="${build.cpu.name}" height="50" width="50"/>
+											</div>
+											<div class="col-md-6"><strong>${build.cpu.name}</strong></div>
 										    <div class="col-md-4">$${build.cpu.price}</div>
 								    	</c:when>
 								    </c:choose>
@@ -61,7 +65,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.motherboard != null}">
-											<div class="col-md-8"><strong>${build.motherboard.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.motherboard.imagePath}" title="${build.motherboard.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.motherboard.name}</strong></div>
 										    <div class="col-md-4">$${build.motherboard.price}</div>
 								    	</c:when>
 								    </c:choose>
@@ -79,7 +86,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.gpu != null}">
-											<div class="col-md-8"><strong>${build.gpu.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.gpu.imagePath}" title="${build.gpu.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.gpu.name}</strong></div>
 										    <div class="col-md-4">$${build.gpu.price}</div>
 								    	</c:when>
 								    </c:choose>
@@ -97,7 +107,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.psu != null}">
-											<div class="col-md-8"><strong>${build.psu.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.psu.imagePath}" title="${build.psu.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.psu.name}</strong></div>
 										    <div class="col-md-4">$${build.psu.price}</div>
 								    	</c:when>
 								    </c:choose>
@@ -115,7 +128,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.cooler != null}">
-											<div class="col-md-8"><strong>${build.cooler.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.cooler.imagePath}" title="${build.cooler.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.cooler.name}</strong></div>
 										    <div class="col-md-4">$${build.cooler.price}</div>
 								    	</c:when>
 								    </c:choose>
@@ -133,7 +149,10 @@
 							    <div class="row">
 								    <c:choose>
 										<c:when test="${build.computerCase != null}">
-											<div class="col-md-8"><strong>${build.computerCase.name}</strong></div>
+											<div class="col-md-2">
+												<img src="${build.computerCase.imagePath}" title="${build.computerCase.name}" height="50" width="50">
+											</div>
+											<div class="col-md-6"><strong>${build.computerCase.name}</strong></div>
 										    <div class="col-md-4">$${build.computerCase.price}</div>
 								    	</c:when>
 								    </c:choose>
@@ -153,7 +172,10 @@
 									<c:when test="${build.ramList.size() > 0}">
 										<c:forEach items="${build.ramList}" var="ram" varStatus="loop">
 											<div class="row">
-												<div class="col-md-8"><strong>${ram.name}</strong></div>
+												<div class="col-md-2">
+													<img src="${ram.imagePath}" title="${ram.name}" height="50" width="50">
+												</div>
+												<div class="col-md-6"><strong>${ram.name}</strong></div>
 											    <div class="col-md-4">$${ram.price}</div>
 										    </div>
 									    </c:forEach>
@@ -174,7 +196,10 @@
 									<c:when test="${build.storageList.size() > 0}">
 										<c:forEach items="${build.storageList}" var="storage" varStatus="loop">
 											<div class="row">
-												<div class="col-md-8"><strong>${storage.name}</strong></div>
+												<div class="col-md-2">
+													<img src="${storage.imagePath}" title="${storage.name}" height="50" width="50">
+												</div>
+												<div class="col-md-6"><strong>${storage.name}</strong></div>
 											    <div class="col-md-4">$${storage.price}</div>
 										    </div>
 									    </c:forEach>

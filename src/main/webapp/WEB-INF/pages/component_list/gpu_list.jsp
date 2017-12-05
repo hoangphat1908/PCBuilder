@@ -32,16 +32,16 @@
 	   			<td>
 					<img src="${gpu.imagePath}" title="${gpu.name}" height="75" width="75">
 				</td>
-	   			<td>${gpu.manufacturer}</td>
-	   			<td>${gpu.model}</td>
+	   			<td><strong>${gpu.manufacturer}</strong></td>
+				<td><strong>${gpu.model}</strong></td>
 	   			<td>${gpu.series}</td>
 	   			<td>${gpu.chipset}</td>
 	   			<td>${gpu.memory}GB</td>
 	   			<td>${gpu.coreClock}GHz</td>
-	   			<td>$${gpu.price}</td>
+	   			<td><strong>$${gpu.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/gpu/${gpu.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

@@ -43,7 +43,7 @@ class CaseMapper implements RowMapper<Case> {
 		computerCase.setManufacturer(result.getString("manufacturer"));
 		computerCase.setModel(result.getString("model"));
 		computerCase.setPrice(result.getDouble("price"));
-		computerCase.setImagePath("resources/img/case/case_"+result.getInt("id")+".jpg");
+		computerCase.setImagePath("/resources/img/component/case/case_"+result.getInt("id")+".jpg");
 		computerCase.setType(result.getString("type"));
 		computerCase.setPsuIncluded(result.getString("psu_included") != null ? result.getString("psu_included") : "None");
 		return computerCase;

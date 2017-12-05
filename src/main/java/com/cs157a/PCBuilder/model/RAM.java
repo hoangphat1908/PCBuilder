@@ -5,6 +5,10 @@ public class RAM extends Component{
 	private String module;
 	private String type;
 	private String speed;
+	@Override
+	public String getName() {
+		return manufacturer+" "+model+" "+size+"GB ("+module+") "+speed;
+	}
 	public int getSize() {
 		return size;
 	}

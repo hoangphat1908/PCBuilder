@@ -32,15 +32,15 @@
 					<td>
 						<img src="${cpu.imagePath}" title="${cpu.name}" height="75" width="75">
 					</td>
-					<td>${cpu.manufacturer}</td>
-					<td>${cpu.model}</td>
+					<td><strong>${cpu.manufacturer}</strong></td>
+					<td><strong>${cpu.model}</strong></td>
 					<td>${cpu.cores}</td>
 					<td>${cpu.clockSpeed}GHz</td>
 					<td>${cpu.TDP}W</td>
-					<td>$${cpu.price}</td>
+	   				<td><strong>$${cpu.price}</strong></td>
 					<td>
 					    <form action="${contextPath}/cpu/${cpu.id}" method="POST">
-							<button type="submit">Add</button>
+							<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 						</form>
 					</td>
 				</tr>

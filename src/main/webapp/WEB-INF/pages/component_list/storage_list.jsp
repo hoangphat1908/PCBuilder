@@ -33,17 +33,17 @@
 	   			<td>
 					<img src="${storage.imagePath}" title="${storage.name}" height="75" width="75">
 				</td>
-	   			<td>${storage.manufacturer}</td>
-	   			<td>${storage.model}</td>
-	   			<td>${storage.type}GB</td>
+	   			<td><strong>${storage.manufacturer}</strong></td>
+				<td><strong>${storage.model}</strong></td>
+	   			<td>${storage.type}</td>
 	   			<td>${storage.form}</td>
 	   			<td>${storage.series}</td>
 	   			<td>${storage.capacity}</td>
 	   			<td>${storage.cache}</td>
-	   			<td>$${storage.price}</td>
+	   			<td><strong>$${storage.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/storage/${storage.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

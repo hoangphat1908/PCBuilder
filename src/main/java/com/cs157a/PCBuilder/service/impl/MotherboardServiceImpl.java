@@ -42,7 +42,7 @@ class MotherboardMapper implements RowMapper<Motherboard> {
 		motherboard.setManufacturer(result.getString("manufacturer"));
 		motherboard.setModel(result.getString("model"));
 		motherboard.setPrice(result.getDouble("price"));
-		motherboard.setImagePath("resources/img/motherboard/motherboard_"+result.getInt("id")+".jpg");
+		motherboard.setImagePath("/resources/img/component/motherboard/motherboard_"+result.getInt("id")+".jpg");
 		motherboard.setFormFactor(result.getString("form_factor"));
 		motherboard.setSocket(result.getString("socket"));
 		motherboard.setRamSlots(result.getInt("ram_slots"));

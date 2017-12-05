@@ -33,17 +33,17 @@
 	   			<td>
 					<img src="${psu.imagePath}" title="${psu.name}" height="75" width="75">
 				</td>
-	   			<td>${psu.manufacturer}</td>
-	   			<td>${psu.model}</td>
+	   			<td><strong>${psu.manufacturer}</strong></td>
+				<td><strong>${psu.model}</strong></td>
 	   			<td>${psu.series}</td>
 	   			<td>${psu.formFactor}</td>
 	   			<td>${psu.watts}</td>
 	   			<td>${psu.efficiency}</td>
 	   			<td>${psu.modular}</td>
-	   			<td>$${psu.price}</td>
+	   			<td><strong>$${psu.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/psu/${psu.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

@@ -30,14 +30,14 @@
 	   			<td>
 					<img src="${computerCase.imagePath}" title="${computerCase.name}" height="75" width="75">
 				</td>
-	   			<td>${computerCase.manufacturer}</td>
-	   			<td>${computerCase.model}</td>
+	   			<td><strong>${computerCase.manufacturer}</strong></td>
+				<td><strong>${computerCase.model}</strong></td>
 	   			<td>${computerCase.type}</td>
 	   			<td>${computerCase.psuIncluded}</td>
-	   			<td>$${computerCase.price}</td>
+	   			<td><strong>$${computerCase.price}</strong></td>
 	   			<td>
 				    <form action="${contextPath}/case/${computerCase.id}" method="POST">
-						<button type="submit">Add</button>
+						<button class = "btn btn-primary btn-sm" type="submit">Add</button>
 					</form>
 				</td>
 	   		</tr>

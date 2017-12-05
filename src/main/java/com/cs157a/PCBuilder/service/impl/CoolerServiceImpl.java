@@ -42,7 +42,7 @@ class CoolerMapper implements RowMapper<Cooler> {
 		cooler.setManufacturer(result.getString("manufacturer"));
 		cooler.setModel(result.getString("model"));
 		cooler.setPrice(result.getDouble("price"));
-		cooler.setImagePath("resources/img/cooler/cooler_"+result.getInt("id")+".jpg");
+		cooler.setImagePath("/resources/img/component/cooler/cooler_"+result.getInt("id")+".jpg");
 		cooler.setRpm(result.getString("rpm"));
 		cooler.setNoise(result.getString("noise"));
 		return cooler;

@@ -16,12 +16,11 @@
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
 		<div class="col-sm-12 col-md-12">
             <div align="center">
-                <img src="https://static.dreamstime.com/t/male-avatar-profile-picture-silhouette-34443055.jpg" alt="profile_img" title="Phat Nguyen" class="img-circle" height="100" width="100">
+                <img src="/resources/img/user/anonymous.jpg" alt="profile_img" title="Phat Nguyen" class="img-circle" height="100" width="100">
             </div>
             <div>
                 <div align="center">
-                    <h3>Phat Nguyen</h3>
-                    <span class="help-block">${pageContext.request.userPrincipal.name}</span>
+                    <h3>${pageContext.request.userPrincipal.name}</h3>
                 </div>
                  
 				<ul class="nav nav-tabs nav-justified">

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Build View</title>
+<title>My Build</title>
 <link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
@@ -38,13 +38,21 @@
 					</div>
 				</div>
 			</div>
-			<div class="page-header">
-				<h1>${build.name}
-					<button type="button" class="btn btn-info btn-link borderless-button" data-toggle="modal" data-target="#editNameModal">
-						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-					</button>
-					<small>by ${build.user.username}</small>
-				</h1>
+			
+			<div class="row">
+				<div class="col-md-9">
+					<div class="page-header">
+						<h1>${build.name}
+							<button type="button" class="btn btn-info btn-link borderless-button" data-toggle="modal" data-target="#editNameModal">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							</button>
+							<small>by ${build.user.username}</small>
+						</h1>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a class="btn btn-primary" href="${contextPath}/mybuild/new"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Create a new build</a>		
+				</div>
 			</div>
 			<table class="table table-striped">
 				<thead>

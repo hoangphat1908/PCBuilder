@@ -42,7 +42,7 @@ class PSUMapper implements RowMapper<PSU> {
 		psu.setManufacturer(result.getString("manufacturer"));
 		psu.setModel(result.getString("model"));
 		psu.setPrice(result.getDouble("price"));
-		psu.setImagePath("resources/img/psu/psu_"+result.getInt("id")+".jpg");
+		psu.setImagePath("/resources/img/component/psu/psu_"+result.getInt("id")+".jpg");
 		psu.setSeries(result.getString("series"));
 		psu.setFormFactor(result.getString("form_factor"));
 		psu.setWatts(result.getString("watts"));

@@ -50,7 +50,7 @@ class RAMMapper implements RowMapper<RAM> {
 		ram.setManufacturer(result.getString("manufacturer"));
 		ram.setModel(result.getString("model"));
 		ram.setPrice(result.getDouble("price"));
-		ram.setImagePath("resources/img/ram/ram_"+result.getInt("id")+".jpg");
+		ram.setImagePath("/resources/img/component/ram/ram_"+result.getInt("id")+".jpg");
 		ram.setSize(result.getInt("size"));
 		ram.setModule(result.getString("module"));
 		ram.setType(result.getString("type"));
