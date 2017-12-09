@@ -132,7 +132,7 @@ INSERT INTO `cooler` (manufacturer, model, price, rpm, noise)
 VALUES
     ('Cooler Master', 'Hyper 212 EVO', 24.39, '600 - 2000 RPM', '9.0 - 36.0 dbA'),
     ('Corsair', 'H100i v2', 99.99, '2435 RPM', '37.7 dbA'),
-    ('NZXT', 'Kraken X62 Rev 2', 414.89, '500 - 1800 RPM', '21.0 - 38.0 dbA'),
+    ('NZXT', 'Kraken X62 Rev 2', 144.89, '500 - 1800 RPM', '21.0 - 38.0 dbA'),
     ('Noctua', 'NH-D15', 88.88, '300 - 1500 RPM', '19.2 - 24.6 dbA'),
     ('Noctua', 'NH-U9S', 58.35, '400 - 2000 RPM', '16.3 - 22.8 dbA'),
     ('CRYORIG', 'H7', 28.9, '330 - 1600 RPM', '1.0 - 25.0 dbA'),
