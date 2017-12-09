@@ -68,7 +68,7 @@ VALUES
     ('Gigabyte', 'GV-N1080WF3OC-8GD', 499.99, 'WINDFORCE OC8G', 'GeForce GTX 1080', 8, 1.66),
     ('EVGA', '04G-P4-6251-KR', 159.89, 'ACX 2.0', 'GeForce GTX 1050 Ti', 4, 1.29),
     ('EVGA', '11G-P4-6393-KR', 743.99, 'SC Black Edition', 'GeForce GTX 1080 Ti', 11, 1.56),
-    ('EVGA', '04G-P4-6253-KR', 156.99, 'SC GAMING ACX 2.0', 'GeForce 1050 Ti', 4, 1.35)
+    ('EVGA', '04G-P4-6253-KR', 156.99, 'SC GAMING ACX 2.0', 'GeForce 1050 Ti', 4, 1.35),
     ('EVGA', '04G-P4-2983-KR', 377.39, 'Superclocked ACX 2.0', 'GeForce GTX 980', 4, 1.27),
     ('EVGA', '03G-P4-2884-KR', 289.99, 'Superclocked ACX', 'GeForce GTX 780', 3, 0.967),
     ('EVGA', '08G-P4-6173-KR', 457.89, 'SC Gaming ACX 3.0', 'GeForce GTX 1070', 8, 1.59),
@@ -85,7 +85,7 @@ VALUES
     ('Corsair', 'AX760', 159.88, '', 'ATX', '760W', '80+ Platinum', 'Full'),
     ('Corsair', 'AX1200i', 299.99, '', 'ATX', '1200W', '80+ Platinum', 'Full'),
     ('Corsair', 'AX750', 199.99, 'Professional Gold', 'ATX', '750W', '80+ Gold', 'Full'),
-    ('Corsair', 'AX860', 155.98, '', 'ATX', '860W', '80+ Platinum', 'Full')
+    ('Corsair', 'AX860', 155.98, '', 'ATX', '860W', '80+ Platinum', 'Full'),
     ('Corsair', 'HX1000i', 199.99, '', 'ATX', '1000W', '80+ Platinum', 'Full'),
     ('SeaSonic', 'Platinum-1000', 169.99, 'Platinum', 'ATX', '1000W', '80+ Platinum', 'Full'),
     ('Corsair', 'AX850', 229.99, 'Professional Gold', 'ATX', '850W', '80+ Platinum', 'Full'),
@@ -157,7 +157,7 @@ VALUES
     ('Thermaltake', 'Core V21', 34.99, 'ATX Mid Tower', NULL),
     ('Cooler Master', 'MasterBox Lite 5 RGB', 76.98, 'ATX Mid Tower', NULL),
     ('Fractal Design', 'Node 202', 129.99, 'HTPC', '450W'),
-    ('NZXT', 'S340 (Black/Blue)', 49.99, 'ATX Mid Tower', NULL)
+    ('NZXT', 'S340 (Black/Blue)', 49.99, 'ATX Mid Tower', NULL),
     ('Corsair', '200R', 39.99, 'ATX Mid Tower', NULL),
     ('Corsair', '750D', 99.99, 'ATX Mid Tower', NULL),
     ('Cooler Master', 'MasterBox Lite 5', 44.99, 'ATX Mid Tower', NULL),
