@@ -508,7 +508,7 @@
 									</div>
 									<div class="row well well-sm">
 										<div class="col-md-1" align="center">	
-											<img src="https://static.dreamstime.com/t/male-avatar-profile-picture-silhouette-34443055.jpg" alt="profile_img" title="Phat Nguyen" class="img-circle" height="50" width="50">
+											<img src="/resources/img/user/anonymous.jpg" alt="profile_img" title="Phat Nguyen" class="img-circle" height="50" width="50">
 						
 										</div>
 										<div class="col-md-11">
