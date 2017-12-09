@@ -27,7 +27,6 @@ SET FOREIGN_KEY_CHECKS=1;
 CREATE TABLE `user` (
   `id` INT AUTO_INCREMENT NOT NULL,
   `username` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `current_build_id` INT,
   PRIMARY KEY (`id`)

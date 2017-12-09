@@ -67,7 +67,12 @@ VALUES
     ('ASUS', 'STRIX-GTX1080TI-O11G-GAMING', 804.98, 'STRIX GAMING', 'GeForce 1080 Ti', 11, 1.57),
     ('Gigabyte', 'GV-N1080WF3OC-8GD', 499.99, 'WINDFORCE OC8G', 'GeForce GTX 1080', 8, 1.66),
     ('EVGA', '04G-P4-6251-KR', 159.89, 'ACX 2.0', 'GeForce GTX 1050 Ti', 4, 1.29),
-    ('EVGA', '11G-P4-6393-KR', 743.99, 'SC Black Edition', 'GeForce GTX 1080 Ti', 11, 1.56);
+    ('EVGA', '11G-P4-6393-KR', 743.99, 'SC Black Edition', 'GeForce GTX 1080 Ti', 11, 1.56),
+    ('EVGA', '04G-P4-6253-KR', 156.99, 'SC GAMING ACX 2.0', 'GeForce 1050 Ti', 4, 1.35)
+    ('EVGA', '04G-P4-2983-KR', 377.39, 'Superclocked ACX 2.0', 'GeForce GTX 980', 4, 1.27),
+    ('EVGA', '03G-P4-2884-KR', 289.99, 'Superclocked ACX', 'GeForce GTX 780', 3, 0.967),
+    ('EVGA', '08G-P4-6173-KR', 457.89, 'SC Gaming ACX 3.0', 'GeForce GTX 1070', 8, 1.59),
+    ('EVGA', '03G-P4-2883-KR', 279.99, 'Superclocked', 'GeForce GTX 780 Ti', 3, 0.98);
     
 INSERT INTO `psu` (manufacturer, model, price, series, form_factor, watts, efficiency, modular)
 VALUES
@@ -80,7 +85,12 @@ VALUES
     ('Corsair', 'AX760', 159.88, '', 'ATX', '760W', '80+ Platinum', 'Full'),
     ('Corsair', 'AX1200i', 299.99, '', 'ATX', '1200W', '80+ Platinum', 'Full'),
     ('Corsair', 'AX750', 199.99, 'Professional Gold', 'ATX', '750W', '80+ Gold', 'Full'),
-    ('Corsair', 'AX860', 155.98, '', 'ATX', '860W', '80+ Platinum', 'Full');
+    ('Corsair', 'AX860', 155.98, '', 'ATX', '860W', '80+ Platinum', 'Full')
+    ('Corsair', 'HX1000i', 199.99, '', 'ATX', '1000W', '80+ Platinum', 'Full'),
+    ('SeaSonic', 'Platinum-1000', 169.99, 'Platinum', 'ATX', '1000W', '80+ Platinum', 'Full'),
+    ('Corsair', 'AX850', 229.99, 'Professional Gold', 'ATX', '850W', '80+ Platinum', 'Full'),
+    ('Corsair', 'RM650x', 69.98, 'RMx', 'ATX', '650W', '80+ Gold', 'Full'),
+    ('XFX', 'P1-750B-BEFX', 220.64, 'XTR', 'ATX', '750W', '80+ Gold', 'Full');
    
 INSERT INTO `ram` (manufacturer, model, price, size, module, type, speed)
 VALUES
@@ -93,7 +103,12 @@ VALUES
     ('Corsair', 'Vengeance LPX', 94.00, 8, '1x8GB', '288-pin DIMM', 'DDR4-2400'),
     ('Kingston', 'HyperX Fury Black', 109.99, 8, '2x4GB', '288-pin DIMM', 'DDR4-2133'),
     ('Kingston', 'HyperX Fury Black', 213.78, 16, '2x8GB', '288-pin DIMM', 'DDR4-2133'),
-    ('G.Skill', 'Ripjaws X Series', 68.99, 8, '2x4GB', '240-pin DIMM', 'DDR3-1600');
+    ('G.Skill', 'Ripjaws X Series', 68.99, 8, '2x4GB', '240-pin DIMM', 'DDR3-1600'),
+    ('G.Skill', 'Sniper', 78.99, 8, '2x4GB', '240-pin DIMM', 'DDR3-1600'),
+    ('G.Skill', 'Ripjaws X Series', 177.99, 16, '2x8GB', '240-pin DIMM', 'DDR3-1866'),
+    ('G.Skill', 'Ares Series', 68.99, 8, '2x4GB', '240-pin DIMM', 'DDR3-1600'),
+    ('G.Skill', 'Ripjaws X Series', 93.99, 8, '2x4GB', '240-pin DIMM', 'DDR3-2133'),
+    ('G.Skill', 'Ripjaws X Series', 92.99, 8, '2x4GB', '240-pin DIMM', 'DDR3-1866');
  
 INSERT INTO `storage` (manufacturer, model, price, type, form, series, capacity, cache)
 VALUES
@@ -106,7 +121,12 @@ VALUES
     ('Crucial', 'CT512MX100SSD1', 299.99, 'SSD', '2.5"', 'MX100', '512GB', NULL),
     ('Samsung', 'MZ-75E1T0B/AM', 279.99, 'SSD', '2.5"', '850 EVO-Series', '1TB', NULL),
     ('Samsung', 'MZ-7PD128BW', 279.99, 'SSD', '2.5"', '840 Pro Series', '128GB', NULL),
-    ('PNY', 'SSD7CS1311-240-RB', 97.49, 'SSD', '2.5"', 'CS1311', '240GB', NULL);
+    ('PNY', 'SSD7CS1311-240-RB', 97.49, 'SSD', '2.5"', 'CS1311', '240GB', NULL),
+    ('Samsung', 'MZ-7PD256BW', 297.38, 'SSD', '2.5"', '840 Pro Series', '256GB', NULL),
+    ('Samsung', 'MZ-7KE256BW', 109.99, 'SSD', '2.5"', '850 Pro Series', '256GB', NULL),
+    ('Samsung', 'MZ-V6E1T0', 459.99, 'SSD', 'M.2-2280', '960 EVO-Series', '1TB', '1000MB'),
+    ('Samsung', 'MZ-V6E500', 247.88, 'SSD', 'M.2-2280', '960 EVO-Series', '500GB', '512MB'),
+    ('Samsung', 'MZ-7TE250BW', 149.88, 'SSD', '2.5"', '840 EVO-Series', '250GB', NULL);
     
 INSERT INTO `cooler` (manufacturer, model, price, rpm, noise)
 VALUES
@@ -119,7 +139,12 @@ VALUES
     ('CRYORIG', 'M9i', 18.99, '600 - 2200 RPM', '26.4 dbA'),
     ('be quiet!', 'Pure Rock Slim', 21.49, '2000 RPM', '13.1 - 25 dbA'),
     ('Corsair', 'H105', 89.99, '800 - 2700 RPM', '37.7 dbA'),
-    ('be quiet!', 'Dark Rock Pro 3', 74.49, '1400 - 1700 RPM', '13.2 - 26.1 dbA');
+    ('be quiet!', 'Dark Rock Pro 3', 74.49, '1400 - 1700 RPM', '13.2 - 26.1 dbA'),
+    ('Noctua', 'NH-D14', 74.95, '900 - 1200 RPM', '12.6 - 19.8 dbA'),
+    ('Noctua', 'NH-U12S', 57.99, '300 - 1500 RPM', '18.6 - 22.4 dbA'),
+    ('CRYORIG', 'H5 Ultimate', 42.89, '700 - 1300 RPM', '19.0 - 23.0 dbA'),
+    ('Corsair', 'H100i', 99.99, '2700 RPM', '37.7 dbA'),
+    ('Corsair', 'H115i', 109.99, '2000 RPM', '40 dbA');
     
 INSERT INTO `computer_case` (manufacturer, model, price, type, psu_included)
 VALUES
@@ -132,4 +157,9 @@ VALUES
     ('Thermaltake', 'Core V21', 34.99, 'ATX Mid Tower', NULL),
     ('Cooler Master', 'MasterBox Lite 5 RGB', 76.98, 'ATX Mid Tower', NULL),
     ('Fractal Design', 'Node 202', 129.99, 'HTPC', '450W'),
-    ('NZXT', 'S340 (Black/Blue)', 49.99, 'ATX Mid Tower', NULL);
+    ('NZXT', 'S340 (Black/Blue)', 49.99, 'ATX Mid Tower', NULL)
+    ('Corsair', '200R', 39.99, 'ATX Mid Tower', NULL),
+    ('Corsair', '750D', 99.99, 'ATX Mid Tower', NULL),
+    ('Cooler Master', 'MasterBox Lite 5', 44.99, 'ATX Mid Tower', NULL),
+    ('Fractal Design', 'Focus G (White)', 54.99, 'ATX Mid Tower', NULL),
+    ('Corsair', '760T Black', 149.99, 'ATX Mid Tower', NULL);
