@@ -18,7 +18,7 @@ Setup instructions for Eclipse:
         * Base directory: Workspace->OK
         * Goals: tomcat7:run
     * Run
-7. Open web application by navigate to http://localhost:8080/PCBuilder
+7. Open web application by navigate to http://localhost:8080/
 
 Setup instructions for MySQL database:
 1. Install MySQL Server from https://dev.mysql.com/downloads/installer/
