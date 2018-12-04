@@ -138,14 +138,13 @@
                 <configuration>
 		            <contextReloadable>true</contextReloadable>
 		            <path>/</path>
+		            <port>8899</port>
 		        </configuration>
                 <!-- Config: contextPath and Port (Default: /PCBuilder : 8080) -->
-                <!--
-                <configuration>
-                    <path>/</path>
-                    <port>8899</port>
-                </configuration>
-                -->  
+                
+                    
+                
+                 
             </plugin>
         </plugins>
     </build>   
