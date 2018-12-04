@@ -179,8 +179,4 @@ public class BuildController {
 		}
 		return "redirect:/mybuild";
 	}
-	public string test() {
-		string s = "lol";
-		
-	}
 }
