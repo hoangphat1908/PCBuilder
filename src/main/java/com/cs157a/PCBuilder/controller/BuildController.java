@@ -1,6 +1,6 @@
 package com.cs157a.PCBuilder.controller;
 
-
+//test to see if the build is updated on GitHub
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -178,5 +178,9 @@ public class BuildController {
 			}
 		}
 		return "redirect:/mybuild";
+	}
+	public string test() {
+		string s = "lol";
+		
 	}
 }
